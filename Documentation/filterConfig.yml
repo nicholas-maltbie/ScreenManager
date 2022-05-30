@@ -1,0 +1,10 @@
+apiRules:
+- include:
+    uidRegex: ^nickmaltbie\.ScreenManager
+    type: Namespace
+- include:
+    uidRegex: ^nickmaltbie\.ScreenManager\.*
+    type: Namespace
+- exclude:
+    uidRegex: .*
+    type: Namespace

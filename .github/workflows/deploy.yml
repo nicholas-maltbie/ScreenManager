@@ -1,0 +1,135 @@
+name: Build and Deploy WebGL
+
+concurrency: production-${{ github.ref }}
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2021_1 }}
+
+jobs:
+  updateSemver:
+    name: Update semver
+    runs-on: ubuntu-latest
+    outputs:
+      commit_hash: ${{ steps.commit_and_push.outputs.commit_hash }}
+
+    steps:
+      # You must ALWAYS checkout your repo so that actions in the workflow can use it.
+      - name: Checkout 
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Find ProjectSettings.asset & increment its bundleVersion number
+        uses: AlexHolderDeveloper/UnityAutomatedSemver@v1.02
+        id: semver-update
+        with:
+          semver-update-type: 'patch' # version number: "major.minor.patch"
+
+      # Validate that the number has been incremented correctly.
+      - name: Get the new semver number
+        run: echo "The new semver number for this Unity project is ${{ steps.semver-update.outputs.semver-number }}"
+
+      # Commit & push the updated semver number back into the repo. Yes, you have to fetch & pull in your local workstation after this step is done.
+      - id: commit_and_push
+        name: Push changed files back to repo
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[skip ci] Updated semver via automated action."
+          commit_options: '--no-verify --signoff'
+          # Optional commit user and author settings
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+
+  buildAndDeployApp:
+    name: Build and Deploy for ${{ matrix.targetPlatform }} on version ${{ matrix.unityVersion }}
+    needs: updateSemver
+    runs-on: Ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        unityVersion:
+          - 2021.1.19f1
+        targetPlatform:
+          - WebGL
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ needs.updateSemver.outputs.commit_hash }}
+
+      - name: Create LFS file list
+        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
+
+      - name: Cache Library Folder
+        uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ matrix.targetPlatform }}-${{ hashFiles('Packages/manifest.json') }}-v.1.1
+          restore-keys: |
+            Library-${{ matrix.targetPlatform }}-
+      - name: Cache git lfs
+        uses: actions/cache@v2
+        with:
+          path: .git/lfs
+          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}-v1.2
+          # use previous cache if current one is not found
+          restore-keys: |
+            ${{ runner.os }}-lfs-
+      - name: Pull lfs data, if not cached
+        run: git lfs pull
+
+      # Build the game deployment at build
+      - uses: game-ci/unity-builder@v2.0-alpha-6
+        with:
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: ${{ matrix.unityVersion }}
+          targetPlatform: ${{ matrix.targetPlatform }}
+          buildMethod: ScriptBatch.OfficialBuild_WebGL
+
+      # Deploy build to gh-pages branch
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          force_orphan: true
+          publish_dir: Builds/ScreenManager-WebGL
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # Build the documentation
+  buildAndDeployDocs:
+    runs-on: windows-latest # Required by DocFX
+    needs: buildAndDeployApp
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        # with:
+        #   submodules: true
+
+      - name: Cache git lfs
+        uses: actions/cache@v2
+        with:
+          path: .git/lfs
+          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}-v1.2
+          # use previous cache if current one is not found
+          restore-keys: |
+            ${{ runner.os }}-lfs-
+      - name: Pull lfs data, if not cached
+        run: git lfs pull
+
+      - name: Install DocFX
+        run: choco install -y docfx
+
+      - name: Build Website
+        run: .\Documentation\build.cmd
+
+      # Checkout to the previously created gh-pages branch
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir:  _site
+          destination_dir: docs
+          github_token: ${{ secrets.GITHUB_TOKEN }}
