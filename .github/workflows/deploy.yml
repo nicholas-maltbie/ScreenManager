@@ -78,7 +78,7 @@ jobs:
           branch: main
           unprotect_reviews: true
           timeout: 30
-          sleep: 60
+          sleep: 30
 
   build-and-deploy-app:
     name: Build and Deploy for Product
