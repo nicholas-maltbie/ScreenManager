@@ -61,27 +61,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ needs.updateSemver.outputs.commit_hash }}
-
-      - name: Create LFS file list
-        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
-
-      - name: Cache Library Folder
-        uses: actions/cache@v2
+      - uses: ./.github/workflows/git-lfs-cache
+      - uses: ./.github/workflows/unity-library-cache
         with:
-          path: Library
-          key: Library-${{ matrix.targetPlatform }}-${{ hashFiles('Packages/manifest.json') }}-v.1.1
-          restore-keys: |
-            Library-${{ matrix.targetPlatform }}-
-      - name: Cache git lfs
-        uses: actions/cache@v2
-        with:
-          path: .git/lfs
-          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}-v1.2
-          # use previous cache if current one is not found
-          restore-keys: |
-            ${{ runner.os }}-lfs-
-      - name: Pull lfs data, if not cached
-        run: git lfs pull
+          runner_os: ${{ runners.os }}
+          target_platform: ${{ matrix.targetPlatform }}
 
       # Build the game deployment at build
       - uses: game-ci/unity-builder@v2.0-alpha-6
@@ -104,21 +88,8 @@ jobs:
     runs-on: windows-latest # Required by DocFX
     needs: buildAndDeployApp
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        # with:
-        #   submodules: true
-
-      - name: Cache git lfs
-        uses: actions/cache@v2
-        with:
-          path: .git/lfs
-          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}-v1.2
-          # use previous cache if current one is not found
-          restore-keys: |
-            ${{ runner.os }}-lfs-
-      - name: Pull lfs data, if not cached
-        run: git lfs pull
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/git-lfs-cache
 
       - name: Install DocFX
         run: choco install -y docfx

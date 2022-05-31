@@ -1,0 +1,24 @@
+name: Unity Library Resources Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      runner_os:
+        required: true
+        type: string
+      target_platform:
+        required: true
+        type: string
+
+jobs:
+  setup_lfs_cache:
+    name: Setup the Unity Library Cache
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache Library Folder
+        uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ inputs.runner_os }}-${{ inputs.target_platform }}-${{ hashFiles('Packages/manifest.json') }}-v1.0.0
+          restore-keys: |
+            Library-${{ inputs.runner_os }}-${{ inputs.target_platform }}-
