@@ -63,6 +63,7 @@ jobs:
         with:
           commit_message: "[skip ci] Updated semver via automated action."
           commit_options: '--no-verify --signoff'
+          push_options: '--force'
           # Optional commit user and author settings
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
