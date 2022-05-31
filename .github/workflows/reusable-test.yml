@@ -21,8 +21,8 @@ jobs:
     name: Reusable Test Workflow for ${{ inputs.test_mode }} Tests for Unity ${{ inputs.unity_version }}
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/git-lfs-cache.yml
-      - uses: ./.github/workflows/unity-library-cache.yml
+      - uses: nicholas-maltbie/ScreenManager/.github/workflows/git-lfs-cache.yml
+      - uses: nicholas-maltbie/ScreenManager/.github/workflows/unity-library-cache.yml
         with:
           target_platform: ${{ inputs.target_platform }}
 
