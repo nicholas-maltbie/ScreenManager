@@ -16,11 +16,6 @@ secrets:
 runs:
   using: "composite"
   steps:
-    - uses: ./.github/actions/git-lfs-cache
-    - uses: ./.github/actions/unity-library-cache
-      with:
-        target_platform: ${{ inputs.target_platform }}
-
     - uses: game-ci/unity-test-runner@v2.0.2
       id: Run ${{ inputs.test_mode }} Tests for Unity ${{ inputs.unity_version }}
       env:
