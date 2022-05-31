@@ -14,13 +14,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/run-tests
+      - uses: ./.github/actions/git-lfs-cache
+      - uses: ./.github/actions/unity-library-cache
         with:
           target_platform: WebGL
-          unity_version: 2021.1.19f1
-          test_mode: All
-        secrets:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          runner_os: ${{ runners.os }}
+
+      - uses: game-ci/unity-test-runner@v2.0.2
+        id: Run All Tests for Unity 2021.1.19f1
+        with:
+          unityVersion: 
+          testMode: All
+          checkName: All Test Results
+          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+ScreenManager'
+          customParameters: "-burst-disable-compilation -nographics"
 
   update-semver:
     name: Update Semantic Version of Project
@@ -61,14 +68,6 @@ jobs:
     name: Build and Deploy for Product
     needs: update-semver
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        unityVersion:
-          - 2021.1.19f1
-        targetPlatform:
-          - WebGL
-
     steps:
       - uses: actions/checkout@v2
         with:
@@ -76,14 +75,14 @@ jobs:
       - uses: ./.github/actions/git-lfs-cache
       - uses: ./.github/actions/unity-library-cache
         with:
-          target_platform: ${{ matrix.targetPlatform }}
+          target_platform: WebGL
+          runner_os: ${{ runners.os }}
 
       # Build the game deployment at build
       - uses: game-ci/unity-builder@v2.0.4
         with:
-          projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
-          targetPlatform: ${{ matrix.targetPlatform }}
+          unityVersion: 2021.1.19f1
+          targetPlatform: WebGL
           buildMethod: ScriptBatch.OfficialBuild_WebGL
 
       # Deploy build to gh-pages branch
