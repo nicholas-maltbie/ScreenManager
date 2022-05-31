@@ -77,6 +77,8 @@ jobs:
           token: ${{ secrets.PAT }}
           branch: main
           unprotect_reviews: true
+          timeout: 30
+          sleep: 600
 
   build-and-deploy-app:
     name: Build and Deploy for Product
