@@ -11,21 +11,18 @@ jobs:
     name: Build Validation for Pull Request
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
       matrix:
         targetPlatform:
           - WebGL
           - Win64
+    uses: ./.github/workflows/git-lfs-cache.yml
     steps:
       - uses: actions/checkout@v2
-      - run: ls .github/workflows
-      - uses: ./.github/workflows/git-lfs-cache.yml
       - uses: ./.github/workflows/unity-library-cache.yml
         with:
           target_platform: ${{ matrix.targetPlatform }}
 
-      - uses: game-ci/unity-builder@v2.0-alpha-13
+      - uses: game-ci/unity-builder@v2.0.4
         with:
-          projectPath: ${{ matrix.projectPath }}
           unityVersion: 2021.1.19f1
           buildMethod: ScriptBatch.TestBuild_${{ matrix.targetPlatform }}

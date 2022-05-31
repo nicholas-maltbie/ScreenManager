@@ -81,7 +81,7 @@ jobs:
           target_platform: ${{ matrix.targetPlatform }}
 
       # Build the game deployment at build
-      - uses: game-ci/unity-builder@v2.0-alpha-6
+      - uses: game-ci/unity-builder@v2.0.4
         with:
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
