@@ -11,6 +11,7 @@ jobs:
     name: Build Validation for Pull Request
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         target_platform:
           - WebGL

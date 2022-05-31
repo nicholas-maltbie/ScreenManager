@@ -8,6 +8,8 @@ env:
 
 jobs:
   test-validation-pull-request:
+    strategy:
+      fail-fast: false
     name: Test Validation for Pull Request
     runs-on: ubuntu-latest
     steps:
