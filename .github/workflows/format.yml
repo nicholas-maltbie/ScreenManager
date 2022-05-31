@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - 'push-action/**'
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2021_1 }}
