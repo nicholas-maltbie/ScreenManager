@@ -56,7 +56,7 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           branch: main
-          unprotect_reviews: false
+          unprotect_reviews: true
           timeout: 30
           sleep: 30
 
