@@ -20,8 +20,8 @@ jobs:
           target_platform: WebGL
           runner_os: ${{ runner.os }}
 
-      - uses: game-ci/unity-test-runner@v2.0.2
-        id: Run All Tests for Unity 2021.1.19f1
+      - name: Run All Tests for Unity 2021.1.19f1
+        uses: game-ci/unity-test-runner@v2.0.2
         with:
           unityVersion: 
           testMode: All
