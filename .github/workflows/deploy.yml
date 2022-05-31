@@ -65,7 +65,7 @@ jobs:
           author_name: "github-actions[bot]"
           author_email: "github-actions[bot]@users.noreply.github.com"
           commit: '--no-verify --signoff'
-          message: "[skip ci] Updated semver via automated action."
+          message: "Updated semver via automated action."
           add: 'ProjectSettings/ProjectSettings.asset'
           push: false
 
@@ -78,7 +78,7 @@ jobs:
           branch: main
           unprotect_reviews: true
           timeout: 30
-          sleep: 600
+          sleep: 60
 
   build-and-deploy-app:
     name: Build and Deploy for Product
