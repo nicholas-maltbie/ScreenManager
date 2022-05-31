@@ -4,9 +4,6 @@ inputs:
   target_platform:
     required: true
     type: string
-  runner_os:
-    required: true
-    type: string
 runs:
   using: "composite"
   steps:
@@ -14,6 +11,6 @@ runs:
       uses: actions/cache@v2
       with:
         path: Library
-        key: Library-${{ inputs.runner_os }}-${{ inputs.target_platform }}-${{ hashFiles('Packages/manifest.json') }}-v1.0.0
+        key: Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ hashFiles('Packages/manifest.json') }}-v1.0.0
         restore-keys: |
-          Library-${{ inputs.runner_os }}-${{ inputs.target_platform }}-
+          Library-${{ runner.os }}-${{ inputs.target_platform }}-

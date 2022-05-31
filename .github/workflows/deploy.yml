@@ -4,6 +4,8 @@ concurrency: production-${{ github.ref }}
 
 on:
   push:
+    branches:
+      - main
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2021_1 }}
@@ -18,7 +20,6 @@ jobs:
       - uses: ./.github/actions/unity-library-cache
         with:
           target_platform: WebGL
-          runner_os: ${{ runner.os }}
 
       - name: Run All Tests for Unity 2021.1.19f1
         uses: game-ci/unity-test-runner@v2.0.2
@@ -76,7 +77,6 @@ jobs:
       - uses: ./.github/actions/unity-library-cache
         with:
           target_platform: WebGL
-          runner_os: ${{ runner.os }}
 
       # Build the game deployment at build
       - uses: game-ci/unity-builder@v2.0.4
