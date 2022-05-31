@@ -71,7 +71,7 @@ jobs:
           push: false
 
       # Commit & push the updated semver number back into the repo. Yes, you have to fetch & pull in your local workstation after this step is done.
-      - name: commit_and_push
+      - id: commit_and_push
         name: Push changed files back to repo
         uses: CasperWA/push-protected@v2.10.0
         with:
