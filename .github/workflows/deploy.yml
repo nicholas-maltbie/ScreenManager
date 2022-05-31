@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/reusable-test
+      - uses: ./.github/workflows/reusable-test.yml
         with:
           target_platform: WebGL
           unity_version: 2021.1.19f1
@@ -75,8 +75,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ needs.updateSemver.outputs.commit_hash }}
-      - uses: ./.github/workflows/git-lfs-cache
-      - uses: ./.github/workflows/unity-library-cache
+      - uses: ./.github/workflows/git-lfs-cache.yml
+      - uses: ./.github/workflows/unity-library-cache.yml
         with:
           target_platform: ${{ matrix.targetPlatform }}
 
@@ -102,7 +102,7 @@ jobs:
     needs: build-and-deploy-app
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/git-lfs-cache
+      - uses: ./.github/workflows/git-lfs-cache.yml
 
       - name: Install DocFX
         run: choco install -y docfx

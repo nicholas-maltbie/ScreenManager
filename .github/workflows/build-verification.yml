@@ -18,8 +18,8 @@ jobs:
           - Win64
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/git-lfs-cache
-      - uses: ./.github/workflows/unity-library-cache
+      - uses: ./.github/workflows/git-lfs-cache.yml
+      - uses: ./.github/workflows/unity-library-cache.yml
         with:
           target_platform: ${{ matrix.targetPlatform }}
 
