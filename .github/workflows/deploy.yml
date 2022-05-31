@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/git-lfs-cache
       - uses: ./.github/actions/unity-library-cache
         with:
@@ -43,8 +43,9 @@ jobs:
     steps:
       # You must ALWAYS checkout your repo so that actions in the workflow can use it.
       - name: Checkout 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
+          ref: main
           token: ${{ secrets.PAT }}
       - uses: ./.github/actions/git-lfs-cache
       - run: git config --local core.hooksPath .githooks
@@ -88,7 +89,7 @@ jobs:
     strategy:
       fail-fast: false
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ needs.updateSemver.outputs.commit_hash }}
       - uses: ./.github/actions/git-lfs-cache
@@ -116,7 +117,7 @@ jobs:
     runs-on: windows-latest # Required by DocFX
     needs: build-and-deploy-app
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/git-lfs-cache
 
       - name: Install DocFX
