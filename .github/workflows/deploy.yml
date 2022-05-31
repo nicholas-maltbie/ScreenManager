@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: nicholas-maltbie/ScreenManager/.github/workflows/reusable-test.yml
+      - uses: ./.github/actions/tests.yml
         with:
           target_platform: WebGL
           unity_version: 2021.1.19f1
@@ -75,8 +75,23 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ needs.updateSemver.outputs.commit_hash }}
-      - uses: nicholas-maltbie/ScreenManager/.github/workflows/git-lfs-cache.yml
-      - uses: nicholas-maltbie/ScreenManager/.github/workflows/unity-library-cache.yml
+
+      - name: Create LFS file list
+        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
+
+      - name: Cache git lfs
+        uses: actions/cache@v2
+        with:
+          path: .git/lfs
+          key: lfs-format-${{ hashFiles('.lfs-assets-id') }}-v1.0.0
+          # use previous cache if current one is not found
+          restore-keys: |
+            lfs-format-
+
+      - name: Pull lfs data, if not cached
+        run: git lfs pull
+
+      - uses: ./.github/actions/unity-library-cache.yml
         with:
           target_platform: ${{ matrix.targetPlatform }}
 
@@ -102,7 +117,7 @@ jobs:
     needs: build-and-deploy-app
     steps:
       - uses: actions/checkout@v2
-      - uses: nicholas-maltbie/ScreenManager/.github/workflows/git-lfs-cache.yml
+      - uses: ./.github/actions/git-lfs-cache.yml
 
       - name: Install DocFX
         run: choco install -y docfx
