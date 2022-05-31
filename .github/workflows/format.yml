@@ -19,8 +19,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/git-lfs-cache.yml
-      - uses: ./.github/actions/unity-library-cache.yml
+      - uses: ./.github/actions/git-lfs-cache
+      - uses: ./.github/actions/unity-library-cache
         with:
           target_platform: WebGL
 
@@ -62,7 +62,7 @@ jobs:
     runs-on: windows-latest # Required by DocFX
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/git-lfs-cache.yml
+      - uses: ./.github/actions/git-lfs-cache
 
       - name: Install DocFX
         run: choco install -y docfx

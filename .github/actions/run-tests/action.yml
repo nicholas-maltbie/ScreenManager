@@ -16,8 +16,8 @@ secrets:
 runs:
   using: "composite"
   steps:
-    - uses: ./.github/actions/git-lfs-cache.yml
-    - uses: ./.github/actions/unity-library-cache.yml
+    - uses: ./.github/actions/git-lfs-cache
+    - uses: ./.github/actions/unity-library-cache
       with:
         target_platform: ${{ inputs.target_platform }}
 

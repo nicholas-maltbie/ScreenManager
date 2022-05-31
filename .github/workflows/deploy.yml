@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/tests.yml
+      - uses: ./.github/actions/tests
         with:
           target_platform: WebGL
           unity_version: 2021.1.19f1
@@ -91,7 +91,7 @@ jobs:
       - name: Pull lfs data, if not cached
         run: git lfs pull
 
-      - uses: ./.github/actions/unity-library-cache.yml
+      - uses: ./.github/actions/unity-library-cache
         with:
           target_platform: ${{ matrix.targetPlatform }}
 
@@ -117,7 +117,7 @@ jobs:
     needs: build-and-deploy-app
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/git-lfs-cache.yml
+      - uses: ./.github/actions/git-lfs-cache
 
       - name: Install DocFX
         run: choco install -y docfx

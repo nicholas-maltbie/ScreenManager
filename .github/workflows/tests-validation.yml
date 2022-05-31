@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/actions/tests.yml
+      - uses: ./.github/actions/tests
         with:
           target_platform: WebGL
           unity_version: 2021.1.19f1
