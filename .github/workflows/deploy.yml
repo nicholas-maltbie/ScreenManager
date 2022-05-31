@@ -12,31 +12,9 @@ env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2021_1 }}
 
 jobs:
-  test-validation-deployment:
-    name: Validate Tests Before Deployment
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/git-lfs-cache
-      - uses: ./.github/actions/unity-library-cache
-        with:
-          target_platform: WebGL
-
-      - name: Run All Tests for Unity 2021.1.19f1
-        uses: game-ci/unity-test-runner@v2.0.2
-        with:
-          unityVersion: 
-          testMode: All
-          checkName: All Test Results
-          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+ScreenManager'
-          customParameters: "-burst-disable-compilation -nographics"
-
   update-semver:
     name: Update Semantic Version of Project
     runs-on: ubuntu-latest
-    needs: test-validation-deployment
     outputs:
       commit_hash: ${{ steps.commit_changes.outputs.commit_long_sha }}
 
