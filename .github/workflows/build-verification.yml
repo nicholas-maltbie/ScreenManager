@@ -18,6 +18,7 @@ jobs:
           - Win64
     steps:
       - uses: actions/checkout@v2
+      - run: ls .github/workflows
       - uses: ./.github/workflows/git-lfs-cache.yml
       - uses: ./.github/workflows/unity-library-cache.yml
         with:
