@@ -12,16 +12,9 @@ env:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  code-format:
-    name: Dotnet code validation
-    runs-on: Ubuntu-20.04
-    strategy:
-      fail-fast: false
-      matrix:
-        unityVersion:
-          - 2021.1.19f1
-        targetPlatform:
-          - WebGL
+  dotnet-code-format:
+    name: Dotnet Code Validation
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -29,14 +22,12 @@ jobs:
       - uses: ./.github/workflows/git-lfs-cache
       - uses: ./.github/workflows/unity-library-cache
         with:
-          runner_os: ${{ runners.os }}
-          target_platform: ${{ matrix.targetPlatform }}
+          target_platform: WebGL
 
       - name: Ensure .sln file is generated
         uses: game-ci/unity-builder@v2.0-alpha-13
         with:
-          projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
+          unityVersion: 2021.1.19f1
           buildMethod: Packages.Rider.Editor.RiderScriptEditor.SyncSolution
 
       - name: Set up .NET
@@ -54,7 +45,7 @@ jobs:
         run: dotnet format whitespace workspace.sln --verbosity detailed --exclude Library --verify-no-changes
 
   lint-markdown:
-    name: Lint markdown files
+    name: Lint Markdown Files
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
@@ -67,7 +58,7 @@ jobs:
 
   # Build the documentation
   docfx-check:
-    name: DocFx documentation validation
+    name: DocFx Documentation Validation
     runs-on: windows-latest # Required by DocFX
     steps:
       - uses: actions/checkout@v2

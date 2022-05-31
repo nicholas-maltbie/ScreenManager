@@ -7,26 +7,24 @@ env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2021_1 }}
 
 jobs:
-  buildForSomePlatforms:
-    name: Build for ${{ matrix.targetPlatform }} on version ${{ matrix.unityVersion }}
-    runs-on: Ubuntu-20.04
+  build-verification:
+    name: Build Validation for Pull Request
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        unityVersion:
-          - 2021.1.19f1
         targetPlatform:
           - WebGL
+          - Win64
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/git-lfs-cache
       - uses: ./.github/workflows/unity-library-cache
         with:
-          runner_os: ${{ runners.os }}
           target_platform: ${{ matrix.targetPlatform }}
 
       - uses: game-ci/unity-builder@v2.0-alpha-13
         with:
           projectPath: ${{ matrix.projectPath }}
-          unityVersion: ${{ matrix.unityVersion }}
+          unityVersion: 2021.1.19f1
           buildMethod: ScriptBatch.TestBuild_${{ matrix.targetPlatform }}

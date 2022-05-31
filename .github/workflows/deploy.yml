@@ -11,9 +11,23 @@ env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2021_1 }}
 
 jobs:
-  updateSemver:
-    name: Update semver
+  test-validation-deployment:
+    name: Validate Tests Before Deployment
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/reusable-test
+        with:
+          target_platform: WebGL
+          unity_version: 2021.1.19f1
+          test_mode: All
+        secrets:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+  update-semver:
+    name: Update Semantic Version of Project
+    runs-on: ubuntu-latest
+    needs: test-validation-deployment
     outputs:
       commit_hash: ${{ steps.commit_and_push.outputs.commit_hash }}
 
@@ -45,10 +59,10 @@ jobs:
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
 
-  buildAndDeployApp:
-    name: Build and Deploy for ${{ matrix.targetPlatform }} on version ${{ matrix.unityVersion }}
-    needs: updateSemver
-    runs-on: Ubuntu-20.04
+  build-and-deploy-app:
+    name: Build and Deploy for Product
+    needs: update-semver
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -64,7 +78,6 @@ jobs:
       - uses: ./.github/workflows/git-lfs-cache
       - uses: ./.github/workflows/unity-library-cache
         with:
-          runner_os: ${{ runners.os }}
           target_platform: ${{ matrix.targetPlatform }}
 
       # Build the game deployment at build
@@ -84,9 +97,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
   # Build the documentation
-  buildAndDeployDocs:
+  build-and-deploy-docs:
     runs-on: windows-latest # Required by DocFX
-    needs: buildAndDeployApp
+    needs: build-and-deploy-app
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/git-lfs-cache

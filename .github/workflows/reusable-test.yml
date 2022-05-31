@@ -1,0 +1,38 @@
+name: Git Large File Storage Cache Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      test_mode:
+        required: true
+        type: string
+      target_platform:
+        required: true
+        type: string
+      unity_version:
+        required: true
+        type: string
+    secrets:
+      UNITY_LICENSE:
+        required: true
+
+jobs:
+  reusable-test-workflow:
+    name: Reusable Test Workflow for ${{ inputs.test_mode }} Tests for Unity ${{ inputs.unity_version }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/git-lfs-cache
+      - uses: ./.github/workflows/unity-library-cache
+        with:
+          target_platform: ${{ inputs.target_platform }}
+
+      - uses: game-ci/unity-test-runner@v2.0.2
+        id: Run ${{ inputs.test_mode }} Tests for Unity ${{ inputs.unity_version }}
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          unityVersion: ${{ inputs.unity_version }}
+          testMode: ${{ inputs.test_mode }}
+          checkName: ${{ inputs.test_mode }} Test Results
+          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+ScreenManager'
+          customParameters: "-burst-disable-compilation -nographics"

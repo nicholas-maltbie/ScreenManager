@@ -4,7 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  setup_lfs_cache:
+  git-lfs-cache:
     name: Setup the git-lfs Cache
     runs-on: ubuntu-latest
     steps:
