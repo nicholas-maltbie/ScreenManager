@@ -21,7 +21,7 @@ jobs:
       - uses: ./.github/actions/unity-library-cache
         with:
           target_platform: ${{ matrix.target_platform }}
-          runner_os: ${{ runners.os }}
+          runner_os: ${{ runner.os }}
 
       - uses: game-ci/unity-builder@v2.0.4
         with:
