@@ -1,3 +1,21 @@
+﻿// Copyright (C) 2022 Nicholas Maltbie
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+// associated documentation files (the "Software"), to deal in the Software without restriction,
+// including without limitation the rights to use, copy, modify, merge, publish, distribute,
+// sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all copies or
+// substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+// BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+// ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,12 +32,12 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode
         [SetUp]
         public void Setup()
         {
-            GameObject go = new GameObject();
-            this.tabStrip = go.AddComponent<TabStrip>();
+            var go = new GameObject();
+            tabStrip = go.AddComponent<TabStrip>();
 
             // Setup a tab collection
             int tabs = 3;
-            TabPair[] pairs = new TabPair[tabs];
+            var pairs = new TabPair[tabs];
             tabSelectors = new Button[tabs];
             tabPanels = new CanvasGroup[tabs];
             for (int i = 0; i < tabs; i++)
@@ -32,21 +50,23 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode
                 tabPanels[i] = pairs[i].TabContent;
                 tabSelectors[i] = pairs[i].TabButton;
             }
-            this.tabStrip.TabCollection = pairs;
-            this.tabStrip.DefaultTab = pairs[0].TabButton;
+
+            tabStrip.TabCollection = pairs;
+            tabStrip.DefaultTab = pairs[0].TabButton;
 
             // Setup tab strip
-            this.tabStrip.Start();
+            tabStrip.Start();
         }
 
         [TearDown]
         public void TearDown()
         {
-            GameObject.DestroyImmediate(this.tabStrip.gameObject);
+            GameObject.DestroyImmediate(tabStrip.gameObject);
             foreach (Button button in tabSelectors)
             {
                 GameObject.DestroyImmediate(button.gameObject);
             }
+
             foreach (CanvasGroup group in tabPanels)
             {
                 GameObject.DestroyImmediate(group.gameObject);
@@ -57,19 +77,19 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode
         public void TestSelectTabs()
         {
             // Simulate selecting first button
-            this.tabSelectors[0].onClick?.Invoke();
-            Assert.IsTrue(this.tabStrip.CurrentTabIndex == 0);
+            tabSelectors[0].onClick?.Invoke();
+            Assert.IsTrue(tabStrip.CurrentTabIndex == 0);
             // Simulate selecting second button
-            this.tabSelectors[1].onClick?.Invoke();
-            Assert.IsTrue(this.tabStrip.CurrentTabIndex == 1);
+            tabSelectors[1].onClick?.Invoke();
+            Assert.IsTrue(tabStrip.CurrentTabIndex == 1);
         }
 
         [Test]
         public void TestSetupWithDefault()
         {
-            this.tabStrip.DefaultTab = new GameObject().AddComponent<Button>();
-            this.tabStrip.Start();
-            GameObject.DestroyImmediate(this.tabStrip.DefaultTab.gameObject);
+            tabStrip.DefaultTab = new GameObject().AddComponent<Button>();
+            tabStrip.Start();
+            GameObject.DestroyImmediate(tabStrip.DefaultTab.gameObject);
         }
     }
 }

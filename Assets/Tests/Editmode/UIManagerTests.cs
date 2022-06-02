@@ -150,7 +150,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode
         [UnityTest]
         public IEnumerator Validate_UIManagerSingleton()
         {
-            GameObject go = new GameObject();
+            var go = new GameObject();
             UIManager secondUIManager = go.AddComponent<UIManager>();
             secondUIManager.Start();
 
@@ -158,7 +158,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode
             LogAssert.Expect(LogType.Error, new Regex(".*Destroy may not be called from edit mode.*\n.*"));
 
             // Wait for second UIManager to destroy itself.
-            int i = 0; 
+            int i = 0;
             while (go != null && i < 10)
             {
                 yield return null;

@@ -1,3 +1,21 @@
+﻿// Copyright (C) 2022 Nicholas Maltbie
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+// associated documentation files (the "Software"), to deal in the Software without restriction,
+// including without limitation the rights to use, copy, modify, merge, publish, distribute,
+// sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all copies or
+// substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+// BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+// ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 using System.Collections;
 using nickmaltbie.ScreenManager.Actions;
 using NUnit.Framework;
@@ -9,15 +27,12 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
     [TestFixture]
     public class ChangeScreenActionsTests
     {
-        ChangeScreenActions changeScreen;
-        Dropdown windowedDropdown;
-        Dropdown resolutionDropdown;
-        Dropdown displayDropdown;
+        private ChangeScreenActions changeScreen;
 
         [SetUp]
         public void SetUp()
         {
-            GameObject go = new GameObject();
+            var go = new GameObject();
             ScreenLoading.setupDisplay = false;
             changeScreen = go.AddComponent<ChangeScreenActions>();
 
@@ -34,8 +49,8 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
             changeScreen.vsyncToggle.transform.parent = changeScreen.transform;
 
             // Attach confirm dialog
-            GameObject confirmDialog = new GameObject();
-            GameObject settingsPanel = new GameObject();
+            var confirmDialog = new GameObject();
+            var settingsPanel = new GameObject();
             confirmDialog.transform.parent = go.transform;
             settingsPanel.transform.parent = go.transform;
 
@@ -90,7 +105,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
         [Test]
         public void TestFilterResolutions()
         {
-            Resolution[] resolutions = new Resolution[]
+            var resolutions = new Resolution[]
             {
                 new Resolution{width = 10, height = 20, refreshRate = 10},
                 new Resolution{width = 20, height = 20, refreshRate = 10},
@@ -106,29 +121,38 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
         {
             // Simulate waiting for a timeout
             // Create a confirm dialog
-            IEnumerator confirm = this.changeScreen.OpenConfirmChangesDialog();
+            IEnumerator confirm = changeScreen.OpenConfirmChangesDialog();
             // Wait for timeout and confirm revert
-            while (confirm.MoveNext()) ;
+            while (confirm.MoveNext())
+            {
+                ;
+            }
 
             // Wait for timeout but interrupt early by clicking the yes button
-            confirm = this.changeScreen.OpenConfirmChangesDialog();
+            confirm = changeScreen.OpenConfirmChangesDialog();
             confirm.MoveNext();
             confirm.MoveNext();
             confirm.MoveNext();
             // end early by cancel
-            this.changeScreen.confirmDialogYes.onClick?.Invoke();
+            changeScreen.confirmDialogYes.onClick?.Invoke();
             // Finish the co-routine
-            while (confirm.MoveNext()) ;
+            while (confirm.MoveNext())
+            {
+                ;
+            }
 
             // Wait for timeout but interrupt early by clicking the no button
-            confirm = this.changeScreen.OpenConfirmChangesDialog();
+            confirm = changeScreen.OpenConfirmChangesDialog();
             confirm.MoveNext();
             confirm.MoveNext();
             confirm.MoveNext();
             // end early by cancel
-            this.changeScreen.confirmDialogNo.onClick?.Invoke();
+            changeScreen.confirmDialogNo.onClick?.Invoke();
             // Finish the co-routine
-            while (confirm.MoveNext()) ;
+            while (confirm.MoveNext())
+            {
+                ;
+            }
         }
     }
 }

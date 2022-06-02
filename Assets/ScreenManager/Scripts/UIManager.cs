@@ -262,7 +262,7 @@ namespace nickmaltbie.ScreenManager
             string previous = screenSequence.Last.Value;
             // Cleanup the sequence to re-create opening this screen
             screenSequence.RemoveLast();
-            this.SetScreen(previous);
+            SetScreen(previous);
         }
 
         /// <summary>

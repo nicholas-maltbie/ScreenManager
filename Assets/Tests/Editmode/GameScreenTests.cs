@@ -1,8 +1,25 @@
+﻿// Copyright (C) 2022 Nicholas Maltbie
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+// associated documentation files (the "Software"), to deal in the Software without restriction,
+// including without limitation the rights to use, copy, modify, merge, publish, distribute,
+// sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all copies or
+// substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+// BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+// CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+// ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
-using UnityEngine.UI;
 
 namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
 {
@@ -21,14 +38,13 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
         [Test]
         public void TestGameScreenLoading()
         {
-            GameObject go = new GameObject();
+            var go = new GameObject();
             GameScreen screen = go.AddComponent<GameScreen>();
-
-            PlayerInput playerInput = go.AddComponent<PlayerInput>();
-            CanvasGroup canvasGroup = go.AddComponent<CanvasGroup>();
+            _ = go.AddComponent<PlayerInput>();
+            _ = go.AddComponent<CanvasGroup>();
 
             TestScreenComponent attachedComponent = go.AddComponent<TestScreenComponent>();
-            GameObject childObject = new GameObject();
+            var childObject = new GameObject();
             TestScreenComponent childComponent = childObject.AddComponent<TestScreenComponent>();
             childObject.transform.parent = go.transform;
 
