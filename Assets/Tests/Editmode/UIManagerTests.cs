@@ -23,7 +23,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode
     using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
-    using nickmaltbie.OpenKCC.TestCommon;
+    using nickmaltbie.ScreenManager.TestCommon;
     using NUnit.Framework;
     using UnityEngine;
     using UnityEngine.TestTools;

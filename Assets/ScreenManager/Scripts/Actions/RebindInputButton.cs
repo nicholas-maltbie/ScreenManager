@@ -67,7 +67,7 @@ namespace nickmaltbie.ScreenManager.Actions
         /// Get a readable display name for a binding index
         /// </summary>
         /// <returns>Human readable information of button for this binding index</returns>
-        private string GetKeyReadableName() =>
+        public string GetKeyReadableName() =>
             InputControlPath.ToHumanReadableString(
                 inputAction.action.bindings[0].effectivePath,
                 InputControlPath.HumanReadableStringOptions.OmitDevice);

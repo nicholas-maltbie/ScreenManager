@@ -16,6 +16,8 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.Linq;
+using nickmaltbie.ScreenManager.TestCommon;
 using nickmaltbie.ScreenManager.Actions;
 using NUnit.Framework;
 using UnityEngine;
@@ -26,21 +28,23 @@ using static nickmaltbie.ScreenManager.Actions.RebindCompositeInput;
 namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
 {
     [TestFixture]
-    public class RebindInputButtonTests
+    public class RebindInputButtonTests : TestBase
     {
-        [Test]
-        public void TestRebindInputSettings()
-        {
-#if UNITY_EDITOR
-            UnityEngine.SceneManagement.Scene scene = UnityEditor.SceneManagement.EditorSceneManager.NewScene(UnityEditor.SceneManagement.NewSceneSetup.EmptyScene, UnityEditor.SceneManagement.NewSceneMode.Single);
-#endif
+        RebindInputButton rebinding;
 
-            RebindInputButton rebinding = new GameObject().AddComponent<RebindInputButton>();
+        Keyboard keyboard;
+
+        InputActionAsset inputActionAsset;
+
+        [SetUp]
+        public void SetUp()
+        {
+            rebinding = new GameObject().AddComponent<RebindInputButton>();
 
             // Create a sample player input to override
-            Keyboard keyboard = InputSystem.AddDevice<Keyboard>();
+            keyboard = InputSystem.AddDevice<Keyboard>();
             PlayerInput input = rebinding.gameObject.AddComponent<PlayerInput>();
-            InputActionAsset inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
+            inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
             InputAction testAction = inputActionAsset.AddActionMap("testMap").AddAction("testAction", InputActionType.Button, keyboard.qKey.path, interactions: "Hold");
             input.actions = inputActionAsset;
 
@@ -53,6 +57,76 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
             rebinding.startRebinding.transform.parent = rebinding.transform;
             rebinding.waitingForInputObject.transform.parent = rebinding.transform;
 
+            rebinding.gameObject.SetActive(true);
+
+            // Test by reading the settings
+            rebinding.Awake();
+            rebinding.Start();
+
+            RegisterGameObject(rebinding.gameObject);
+        }
+
+        [TearDown]
+        public override void TearDown()
+        {
+            base.TearDown();
+            GameObject.DestroyImmediate(inputActionAsset);
+
+            // Remove rebinding override
+            InputSystem.RemoveDevice(keyboard);
+            PlayerPrefs.DeleteKey(rebinding.InputMappingKey);
+        }
+
+        [Test]
+        public void TestRebindingUpdateDisplay()
+        {
+            rebinding.ResetBinding();
+            rebinding.UpdateDisplay();
+            var previousName = rebinding.GetKeyReadableName();
+            Assert.IsTrue(rebinding.bindingDisplayNameText.text == rebinding.GetKeyReadableName());
+
+            // Simulate hitting key to override binding path
+            rebinding.inputAction.action.ApplyBindingOverride(0, keyboard.rKey.path);
+            rebinding.UpdateDisplay();
+            Assert.IsTrue(rebinding.bindingDisplayNameText.text == rebinding.GetKeyReadableName());
+
+            var overrideName = rebinding.GetKeyReadableName();
+
+            Assert.IsTrue(previousName != overrideName);
+        }
+
+        [Test]
+        public void TestRebindingReset()
+        {
+            // Simulate hitting key to override binding path
+            rebinding.inputAction.action.ApplyBindingOverride(0, keyboard.rKey.path);
+
+            Assert.IsTrue(rebinding.inputAction.action.bindings.Any(
+                binding => binding.overridePath == keyboard.rKey.path
+            ));
+
+            rebinding.ResetBinding();
+
+            // Assert that no override path has been set
+            Assert.IsTrue(string.IsNullOrEmpty(rebinding.inputAction.action.bindings[0].overridePath));
+        }
+
+        [Test]
+        public void TestRebindInputSettingsCancel()
+        {
+            // Start a test rebinding
+            rebinding.startRebinding.onClick?.Invoke();
+
+            // Cancel the test rebinding
+            rebinding.rebindingOperation.Cancel();
+
+            // Assert that no override path has been set
+            Assert.IsTrue(string.IsNullOrEmpty(rebinding.inputAction.action.bindings[0].overridePath));
+        }
+
+        [Test]
+        public void TestRebindingInputLoadSettings()
+        {
             // Save a sample rebinding information
             PlayerPrefs.SetString(rebinding.InputMappingKey, keyboard.eKey.path);
 
@@ -60,86 +134,28 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
             rebinding.Awake();
             rebinding.Start();
 
-            rebinding.gameObject.SetActive(true);
-
-            // Start a test rebinding
-            rebinding.startRebinding.onClick?.Invoke();
-
-            // End the test rebinding
-            rebinding.rebindingOperation.Complete();
-
-            // Cleanup
-            GameObject.DestroyImmediate(rebinding);
-
-            // Remove rebinding override
-            InputSystem.RemoveDevice(keyboard);
-            PlayerPrefs.DeleteKey(rebinding.InputMappingKey);
-
-            ScriptableObject.DestroyImmediate(inputActionAsset);
+            Assert.IsTrue(rebinding.inputAction.action.bindings.Any(
+                binding => binding.overridePath == keyboard.eKey.path
+            ));
         }
 
         [Test]
-        public void TestRebindCompositeInputSettings()
+        public void TestRebindInputRebindAction()
         {
-#if UNITY_EDITOR
-            UnityEngine.SceneManagement.Scene scene = UnityEditor.SceneManagement.EditorSceneManager.NewScene(UnityEditor.SceneManagement.NewSceneSetup.EmptyScene, UnityEditor.SceneManagement.NewSceneMode.Single);
-#endif
-
-            RebindCompositeInput rebinding = new GameObject().AddComponent<RebindCompositeInput>();
-
-            // Create a sample player input to override
-            Keyboard keyboard = InputSystem.AddDevice<Keyboard>();
-            PlayerInput input = rebinding.gameObject.AddComponent<PlayerInput>();
-            InputActionAsset inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
-            InputAction testAction = inputActionAsset.AddActionMap("testMap").AddAction("testAction", InputActionType.Value);
-            testAction.AddCompositeBinding("Axis")
-                .With("Positive", "<Keyboard>/w")
-                .With("Negative", "<Keyboard>/s");
-            input.actions = inputActionAsset;
-
-            // Setup rebinding object
-            rebinding.inputAction = InputActionReference.Create(testAction);
-            rebinding.menuController = rebinding.gameObject.AddComponent<MenuController>();
-            rebinding.rebindingGroups = new RebindingGroup[2];
-            for (int i = 0; i < rebinding.rebindingGroups.Length; i++)
-            {
-                var group = new RebindingGroup();
-
-                var bindingPlaceholder = new GameObject();
-                bindingPlaceholder.transform.parent = rebinding.transform;
-
-                group.bindingDisplayNameText = bindingPlaceholder.AddComponent<UnityEngine.UI.Text>();
-                group.startRebinding = new GameObject().AddComponent<Button>();
-                group.waitingForInputObject = new GameObject();
-                group.startRebinding.transform.parent = bindingPlaceholder.transform;
-                group.waitingForInputObject.transform.parent = bindingPlaceholder.transform;
-
-                rebinding.rebindingGroups[i] = group;
-            }
-
-            // Save a sample rebinding information
-            PlayerPrefs.SetString(rebinding.InputMappingKey(1), keyboard.eKey.path);
-
-            // Test by reading the settings
-            rebinding.Awake();
-            rebinding.Start();
-
-            rebinding.gameObject.SetActive(true);
-
             // Start a test rebinding
-            rebinding.rebindingGroups[0].startRebinding.onClick?.Invoke();
+            rebinding.startRebinding.onClick?.Invoke();
+
+            // Simulate hitting key to override binding path
+            rebinding.inputAction.action.ApplyBindingOverride(0, keyboard.rKey.path);
+
+            Assert.IsTrue(rebinding.rebindingOperation != null);
 
             // End the test rebinding
             rebinding.rebindingOperation.Complete();
 
-            // Cleanup
-            GameObject.DestroyImmediate(rebinding);
-
-            // Remove rebinding override
-            InputSystem.RemoveDevice(keyboard);
-            PlayerPrefs.DeleteKey(rebinding.InputMappingKey(1));
-
-            ScriptableObject.DestroyImmediate(inputActionAsset);
+            Assert.IsTrue(rebinding.inputAction.action.bindings.Any(
+                binding => binding.overridePath == keyboard.rKey.path
+            ));
         }
     }
 }
