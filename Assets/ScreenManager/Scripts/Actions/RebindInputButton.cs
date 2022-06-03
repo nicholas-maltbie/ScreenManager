@@ -17,7 +17,6 @@
 // SOFTWARE.
 
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace nickmaltbie.ScreenManager.Actions
