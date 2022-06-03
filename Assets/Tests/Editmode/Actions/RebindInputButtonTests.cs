@@ -17,24 +17,21 @@
 // SOFTWARE.
 
 using System.Linq;
-using nickmaltbie.ScreenManager.TestCommon;
 using nickmaltbie.ScreenManager.Actions;
+using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using static nickmaltbie.ScreenManager.Actions.RebindCompositeInput;
 
 namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
 {
     [TestFixture]
     public class RebindInputButtonTests : TestBase
     {
-        RebindInputButton rebinding;
-
-        Keyboard keyboard;
-
-        InputActionAsset inputActionAsset;
+        private RebindInputButton rebinding;
+        private Keyboard keyboard;
+        private InputActionAsset inputActionAsset;
 
         [SetUp]
         public void SetUp()
@@ -82,7 +79,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
         {
             rebinding.ResetBinding();
             rebinding.UpdateDisplay();
-            var previousName = rebinding.GetKeyReadableName();
+            string previousName = rebinding.GetKeyReadableName();
             Assert.IsTrue(rebinding.bindingDisplayNameText.text == rebinding.GetKeyReadableName());
 
             // Simulate hitting key to override binding path
@@ -90,7 +87,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
             rebinding.UpdateDisplay();
             Assert.IsTrue(rebinding.bindingDisplayNameText.text == rebinding.GetKeyReadableName());
 
-            var overrideName = rebinding.GetKeyReadableName();
+            string overrideName = rebinding.GetKeyReadableName();
 
             Assert.IsTrue(previousName != overrideName);
         }

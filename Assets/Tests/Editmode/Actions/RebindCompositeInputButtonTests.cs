@@ -16,26 +16,23 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System.Linq;
-using nickmaltbie.ScreenManager.TestCommon;
+using System.Collections.Generic;
 using nickmaltbie.ScreenManager.Actions;
+using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using static nickmaltbie.ScreenManager.Actions.RebindCompositeInput;
-using System.Collections.Generic;
 
 namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
 {
     [TestFixture]
     public class RebindCompositeInputButtonTests : TestBase
     {
-        RebindCompositeInput rebinding;
-
-        Keyboard keyboard;
-
-        InputActionAsset inputActionAsset;
+        private RebindCompositeInput rebinding;
+        private Keyboard keyboard;
+        private InputActionAsset inputActionAsset;
 
         public static IEnumerable<string> SubsetKeyPaths;
 
@@ -83,7 +80,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
 
             rebinding.ResetBinding();
 
-            SubsetKeyPaths = new []
+            SubsetKeyPaths = new[]
             {
                 keyboard.qKey.path,
                 keyboard.wKey.path,
@@ -183,7 +180,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
                     continue;
                 }
 
-                var previousName = rebinding.GetKeyReadableName(index);
+                string previousName = rebinding.GetKeyReadableName(index);
                 Assert.IsTrue(rebinding.rebindingGroups[index - 1].bindingDisplayNameText.text == rebinding.GetKeyReadableName(index));
 
                 // Simulate hitting key to override binding path
@@ -191,7 +188,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
                 rebinding.UpdateDisplay();
                 Assert.IsTrue(rebinding.rebindingGroups[index - 1].bindingDisplayNameText.text == rebinding.GetKeyReadableName(index));
 
-                var overrideName = rebinding.GetKeyReadableName(index);
+                string overrideName = rebinding.GetKeyReadableName(index);
 
                 Assert.IsTrue(previousName != overrideName);
             }
