@@ -20,6 +20,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace nickmaltbie.ScreenManager.Actions
 {
