@@ -19,7 +19,7 @@
 using NUnit.Framework;
 using UnityEngine;
 
-namespace nickmaltbie.OpenKCC.TestCommon
+namespace nickmaltbie.ScreenManager.TestCommon
 {
     /// <summary>
     /// Unity test utilities.

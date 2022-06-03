@@ -21,7 +21,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace nickmaltbie.OpenKCC.TestCommon
+namespace nickmaltbie.ScreenManager.TestCommon
 {
     /// <summary>
     /// Basic unity test base class.

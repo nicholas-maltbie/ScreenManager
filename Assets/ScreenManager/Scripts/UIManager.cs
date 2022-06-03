@@ -21,6 +21,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace nickmaltbie.ScreenManager
@@ -55,17 +56,18 @@ namespace nickmaltbie.ScreenManager
     /// <summary>
     /// Class to manager various UI Screens
     /// </summary>
+    [RequireComponent(typeof(EventSystem))]
     public class UIManager : MonoBehaviour
     {
         /// <summary>
         /// Events for requesting a screen change
         /// </summary>
-        public static event EventHandler<RequestScreenChangeEventArgs> RequestScreenChange;
+        public event EventHandler<RequestScreenChangeEventArgs> RequestScreenChange;
 
         /// <summary>
         /// Events for when a screen change has ocurred
         /// </summary>
-        public static event EventHandler<ScreenChangeEventArgs> ScreenChangeOccur;
+        public event EventHandler<ScreenChangeEventArgs> ScreenChangeOccur;
 
         /// <summary>
         /// Globally created instance of the UIManager
@@ -175,7 +177,7 @@ namespace nickmaltbie.ScreenManager
             }
 
             // Setup listening to event queue
-            UIManager.RequestScreenChange += HandleScreenRequest;
+            UIManager.Instance.RequestScreenChange += HandleScreenRequest;
         }
 
         public void OnDestroy()
@@ -185,7 +187,7 @@ namespace nickmaltbie.ScreenManager
                 UIManager.Instance = null;
             }
 
-            UIManager.RequestScreenChange -= HandleScreenRequest;
+            RequestScreenChange -= HandleScreenRequest;
         }
 
         /// <summary>
@@ -239,24 +241,28 @@ namespace nickmaltbie.ScreenManager
             CurrentScreen = screenName;
 
             // invoke screen change event
-            UIManager.ScreenChangeOccur?.Invoke(this, changeEvent);
+            ScreenChangeOccur?.Invoke(this, changeEvent);
         }
 
         public static void PreviousScreen(object sender)
         {
+            UIManager.Instance.PreviousScreen();
+        }
+
+        public void PreviousScreen()
+        {
             // Check to make sure that there are at least two elements in the sequence
-            if (UIManager.Instance.screenSequence.Count < 2)
+            if (screenSequence.Count < 2)
             {
                 return;
             }
             // Remove the last element
-            UIManager.Instance.screenSequence.RemoveLast();
+            screenSequence.RemoveLast();
             // Get the new target sequence
-            string previous = UIManager.Instance.screenSequence.Last.Value;
+            string previous = screenSequence.Last.Value;
             // Cleanup the sequence to re-create opening this screen
-            UIManager.Instance.screenSequence.RemoveLast();
-            UIManager.RequestNewScreen(sender, previous);
-
+            screenSequence.RemoveLast();
+            SetScreen(previous);
         }
 
         /// <summary>
@@ -269,7 +275,7 @@ namespace nickmaltbie.ScreenManager
             UnityEngine.Debug.Log($"Attempting to set to screen {name}");
             var request = new RequestScreenChangeEventArgs();
             request.newScreen = name;
-            UIManager.RequestScreenChange?.Invoke(sender, request);
+            UIManager.Instance.RequestScreenChange?.Invoke(sender, request);
         }
     }
 }

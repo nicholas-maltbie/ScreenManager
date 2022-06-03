@@ -16,29 +16,35 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System.Collections;
+using nickmaltbie.ScreenManager.Actions;
 using NUnit.Framework;
-using UnityEngine.TestTools;
+using UnityEngine;
+using UnityEngine.UI;
 
-namespace nickmaltbie.ScreenManager.Tests.EditMode
+namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
 {
-    public class EditModeTests
+    [TestFixture]
+    public class ChangeQualityActionsTests
     {
-        // A Test behaves as an ordinary method
         [Test]
-        public void EditModeTestsSimplePasses()
+        public void TestChangeQuality()
         {
-            // Use the Assert class to test conditions
-        }
+            // Setup the object
+            ChangeQualityActions qualitySettings = new GameObject().AddComponent<ChangeQualityActions>();
+            qualitySettings.qualityDropdown = qualitySettings.gameObject.AddComponent<Dropdown>();
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
-        [UnityTest]
-        public IEnumerator EditModeTestsWithEnumeratorPasses()
-        {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-            yield return null;
+            // Test setup
+            qualitySettings.Awake();
+            Assert.IsTrue(QualitySettings.GetQualityLevel() == PlayerPrefs.GetInt(ChangeQualityActions.qualityLevelPlayerPrefKey, QualitySettings.GetQualityLevel()));
+            Assert.IsTrue(qualitySettings.qualityDropdown.options.Count == QualitySettings.names.Length);
+            // Test change value
+            qualitySettings.OnQualityLevelChange(1);
+            Assert.IsTrue(QualitySettings.GetQualityLevel() == 1);
+            qualitySettings.OnQualityLevelChange(2);
+            Assert.IsTrue(QualitySettings.GetQualityLevel() == 2);
+
+            // Cleanup
+            GameObject.DestroyImmediate(qualitySettings.gameObject);
         }
     }
 }
