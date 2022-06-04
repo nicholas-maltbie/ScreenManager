@@ -21,7 +21,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
-namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
+namespace nickmaltbie.ScreenManager.Tests.EditMode
 {
     [TestFixture]
     public class GameScreenTests

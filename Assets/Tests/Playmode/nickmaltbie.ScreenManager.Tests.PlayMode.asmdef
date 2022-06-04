@@ -1,23 +1,21 @@
 {
-    "name": "EditMode",
-    "rootNamespace": "nickmaltbie.ScreenManager.Tests.EditMode",
+    "name": "nickmaltbie.ScreenManager.Tests.PlayMode",
+    "rootNamespace": "nickmaltbie.ScreenManager.Tests.PlayMode",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "ScreenManager",
         "TestCommon",
         "Unity.InputSystem",
-        "Unity.InputSystem.TestFramework"
+        "Unity.InputSystem.TestFramework",
+        "",
+        "nickmaltbie.ScreenManager"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "nunit.framework.dll",
-        "Moq.dll"
+        "nunit.framework.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [

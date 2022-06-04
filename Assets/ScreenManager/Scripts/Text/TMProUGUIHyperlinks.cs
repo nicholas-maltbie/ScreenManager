@@ -16,6 +16,7 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -52,6 +53,8 @@ namespace nickmaltbie.ScreenManager.Text
         private Dictionary<int, bool> usedLinks = new Dictionary<int, bool>();
         private int hoveredLinkIndex = -1;
         private int pressedLinkIndex = -1;
+
+        internal Func<int> getLinkIndex;
 
         public void Awake()
         {
@@ -161,7 +164,8 @@ namespace nickmaltbie.ScreenManager.Text
 
         public int GetLinkIndex()
         {
-            return TMP_TextUtilities.FindIntersectingLink(textMeshPro, Mouse.current.position.ReadValue(), null);
+            return getLinkIndex?.Invoke() ??
+                TMP_TextUtilities.FindIntersectingLink(textMeshPro, Mouse.current.position.ReadValue(), null);
         }
 
         public List<Color32[]> SetLinkColor(int linkIndex, Color32 color)
