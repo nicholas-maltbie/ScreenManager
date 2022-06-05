@@ -111,7 +111,7 @@ namespace nickmaltbie.ScreenManager.Text
                 startColors.ForEach(c => c[0] = c[1] = c[2] = c[3] = usedColor);
                 usedLinks[linkIndex] = true;
                 UnityEngine.Debug.Log($"Opening link - {linkInfo.GetLinkID()}");
-                this.openLink(linkInfo.GetLinkID());
+                openLink(linkInfo.GetLinkID());
             }
 
             pressedLinkIndex = -1;

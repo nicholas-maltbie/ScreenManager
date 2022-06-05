@@ -16,7 +16,6 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using nickmaltbie.ScreenManager.TestCommon;
@@ -24,17 +23,14 @@ using nickmaltbie.ScreenManager.Text;
 using NUnit.Framework;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.UI;
-using UnityEngine.TestTools;
 
 namespace nickmaltbie.ScreenManager.Tests.EditMode.Text
 {
     [TestFixture]
     public class TMProUGUIHyperlinksTests : TestBase
     {
-        TextMeshProUGUI text;
-        TMProUGUIHyperlinks links;
+        private TextMeshProUGUI text;
+        private TMProUGUIHyperlinks links;
 
         private int overrideLinkIndex = -1;
         private string lastPressedLink = string.Empty;
@@ -43,21 +39,21 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Text
         public void SetUp()
         {
             // Ensure a camera exists in the scene
-            GameObject camera = new GameObject();
+            var camera = new GameObject();
             camera.AddComponent<Camera>();
             camera.tag = "MainCamera";
 
-            GameObject canvas = new GameObject();
+            var canvas = new GameObject();
             canvas.AddComponent<Canvas>();
 
-            GameObject go = new GameObject();
+            var go = new GameObject();
             go.transform.SetParent(canvas.transform);
             text = go.AddComponent<TextMeshProUGUI>();
             links = go.AddComponent<TMProUGUIHyperlinks>();
             text.material = new Material(Shader.Find("TextMeshPro/Mobile/Distance Field"));
 
             links.getLinkIndex = () => overrideLinkIndex;
-            links.openLink = (link) => this.lastPressedLink = link;
+            links.openLink = (link) => lastPressedLink = link;
 
             links.Awake();
 
@@ -97,7 +93,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Text
                 {
                     for (int x = 0; x < 4; x++)
                     {
-                        var c1 = vertexColors[vertexIndex];
+                        Color32 c1 = vertexColors[vertexIndex];
                         color ??= c1;
                         Assert.IsTrue(c1 == color);
                     }
@@ -108,7 +104,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Text
                     underlineIndex = charInfo.underlineVertexIndex;
                     for (int j = 0; j < 12; j++) // Underline seems to be always 3 quads == 12 vertices
                     {
-                        var c1 = vertexColors[underlineIndex + j];
+                        Color32 c1 = vertexColors[underlineIndex + j];
                         color ??= c1;
                         Assert.IsTrue(c1 == color);
                     }
@@ -135,7 +131,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Text
             links.OnPointerUp(null);
             Assert.IsTrue(lastPressedLink == "L1");
             lastPressedLink = string.Empty;
-            
+
             overrideLinkIndex = 0;
             links.OnPointerDown(null);
 
@@ -173,7 +169,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Text
             links.OnPointerUp(null);
             Assert.IsTrue(lastPressedLink == "L1");
             lastPressedLink = string.Empty;
-            
+
             overrideLinkIndex = 1;
             links.OnPointerDown(null);
             overrideLinkIndex = 0;
@@ -263,7 +259,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Text
             overrideLinkIndex = -1;
             links.LateUpdate();
             Assert.IsTrue(GetLinkColor(0) == links.startColors[0].FirstOrDefault());
-            
+
             overrideLinkIndex = 0;
             links.LateUpdate();
             Assert.IsTrue(GetLinkColor(0) == links.usedHoveredColor);

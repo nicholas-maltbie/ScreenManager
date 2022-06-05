@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Nicholas Maltbie
+﻿// Copyright (C) 2022 Nicholas Maltbie
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -16,13 +16,11 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
 using nickmaltbie.ScreenManager.Events;
 using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using UnityEngine.UI;
 
 namespace nickmaltbie.ScreenManager.Tests.EditMode.Events
 {

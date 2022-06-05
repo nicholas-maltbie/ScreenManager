@@ -18,7 +18,6 @@
 
 using System.Linq;
 using nickmaltbie.ScreenManager.Actions;
-using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;

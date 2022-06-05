@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Nicholas Maltbie
+﻿// Copyright (C) 2022 Nicholas Maltbie
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -30,25 +30,25 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode
         [Test]
         public void Validate_DisplayControls()
         {
-            GameObject go = new GameObject();
+            var go = new GameObject();
             RegisterGameObject(go);
 
             DisplayControls dc = go.AddComponent<DisplayControls>();
 
-            var keyboard = InputSystem.AddDevice<Keyboard>();
-            var input = go.AddComponent<PlayerInput>();
-            var inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
-            var actionMap = inputActionAsset.AddActionMap("testMap");
-            var testAction1 = actionMap.AddAction("testAction1", InputActionType.Button, keyboard.qKey.path, interactions: "Hold");
-            var testAction2 = actionMap.AddAction("testAction2", InputActionType.Button, keyboard.eKey.path, interactions: "Hold");
-            var testComposite = actionMap.AddAction("testComposite", InputActionType.Value);
+            Keyboard keyboard = InputSystem.AddDevice<Keyboard>();
+            PlayerInput input = go.AddComponent<PlayerInput>();
+            InputActionAsset inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
+            InputActionMap actionMap = inputActionAsset.AddActionMap("testMap");
+            InputAction testAction1 = actionMap.AddAction("testAction1", InputActionType.Button, keyboard.qKey.path, interactions: "Hold");
+            InputAction testAction2 = actionMap.AddAction("testAction2", InputActionType.Button, keyboard.eKey.path, interactions: "Hold");
+            InputAction testComposite = actionMap.AddAction("testComposite", InputActionType.Value);
             testComposite.AddCompositeBinding("Axis")
                 .With("Positive", "<Keyboard>/w")
                 .With("Negative", "<Keyboard>/s");
             input.actions = inputActionAsset;
 
             // Setup rebinding object
-            dc.inputActions = new [] 
+            dc.inputActions = new[]
             {
                 InputActionReference.Create(testAction1),
                 InputActionReference.Create(testAction2),
@@ -56,14 +56,14 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode
             };
 
             dc.Start();
-            var lines = go.GetComponent<UnityEngine.UI.Text>().text.Split('\n');
+            string[] lines = go.GetComponent<UnityEngine.UI.Text>().text.Split('\n');
 
             Debug.Log(string.Join("\n", lines));
 
             Assert.IsTrue(lines.Any(line => line.StartsWith(testAction1.name)));
             Assert.IsTrue(lines.Any(line => line.StartsWith(testAction2.name)));
             Assert.IsTrue(lines.Any(line => line.StartsWith(testComposite.name)));
-            
+
             dc.OnScreenLoaded();
             dc.OnScreenUnloaded();
 

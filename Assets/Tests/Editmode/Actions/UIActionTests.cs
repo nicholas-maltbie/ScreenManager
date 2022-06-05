@@ -44,12 +44,12 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
         public void ToggleFullScreenActionTests()
         {
             ToggleFullScreenAction toggle = uiHolder.AddComponent<ToggleFullScreenAction>();
-            GameObject textObj = new GameObject();
+            var textObj = new GameObject();
             RegisterGameObject(textObj);
             textObj.transform.SetParent(uiHolder.transform);
             textObj.AddComponent<UnityEngine.UI.Text>();
             toggle.DebugAwake();
-            
+
             bool placeholder = false;
             toggle.isFullScreen = () => placeholder;
             toggle.setFullScreen = (v) => placeholder = v;

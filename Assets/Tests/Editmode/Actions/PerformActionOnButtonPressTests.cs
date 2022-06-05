@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Nicholas Maltbie
+﻿// Copyright (C) 2022 Nicholas Maltbie
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -17,9 +17,7 @@
 // SOFTWARE.
 
 using System.Collections;
-using System.Linq;
 using nickmaltbie.ScreenManager.Actions;
-using nickmaltbie.ScreenManager.Events;
 using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
@@ -37,16 +35,16 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
         [UnityTest]
         public IEnumerator Validate_PerformActionOnButtonPressTests()
         {
-            GameObject go = new GameObject();
-            var perform = go.AddComponent<PerformActionOnButtonPress>();
+            var go = new GameObject();
+            PerformActionOnButtonPress perform = go.AddComponent<PerformActionOnButtonPress>();
             RegisterGameObject(go);
 
-            var gamepad = InputSystem.AddDevice<Gamepad>();
-            var input = go.AddComponent<PlayerInput>();
-            var inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
-            var actionMap = inputActionAsset.AddActionMap("testMap");
-            var testAction1 = actionMap.AddAction("testAction1", InputActionType.Button, gamepad.aButton.path);
-            var testAction2 = actionMap.AddAction("testAction2", InputActionType.Button, gamepad.bButton.path);
+            Gamepad gamepad = InputSystem.AddDevice<Gamepad>();
+            PlayerInput input = go.AddComponent<PlayerInput>();
+            InputActionAsset inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
+            InputActionMap actionMap = inputActionAsset.AddActionMap("testMap");
+            InputAction testAction1 = actionMap.AddAction("testAction1", InputActionType.Button, gamepad.aButton.path);
+            InputAction testAction2 = actionMap.AddAction("testAction2", InputActionType.Button, gamepad.bButton.path);
 
             var evt1 = new UnityEvent<CallbackContext>();
             var evt2 = new UnityEvent<CallbackContext>();
@@ -57,7 +55,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
             evt1.AddListener(_ => action1++);
             evt2.AddListener(_ => action2++);
 
-            perform.actionEvents = new []
+            perform.actionEvents = new[]
             {
                 new ActionEvent
                 {

@@ -1,4 +1,4 @@
-// Copyright (C) 2022 Nicholas Maltbie
+﻿// Copyright (C) 2022 Nicholas Maltbie
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -18,7 +18,6 @@
 
 using System.Linq;
 using nickmaltbie.ScreenManager.Actions;
-using nickmaltbie.ScreenManager.Events;
 using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
@@ -46,14 +45,14 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
         [Test]
         public void Validate_ResetBindings()
         {
-            GameObject go = new GameObject();
-            var reset = go.AddComponent<ResetBindingsButton>();
-            var button = go.AddComponent<UnityEngine.UI.Button>();
+            var go = new GameObject();
+            ResetBindingsButton reset = go.AddComponent<ResetBindingsButton>();
+            UnityEngine.UI.Button button = go.AddComponent<UnityEngine.UI.Button>();
             reset.button = button;
             RegisterGameObject(go);
-            var bindings = Enumerable.Range(1, 10).Select(_ => 
+            var bindings = Enumerable.Range(1, 10).Select(_ =>
             {
-                GameObject child = new GameObject();
+                var child = new GameObject();
                 child.transform.SetParent(go.transform);
                 RegisterGameObject(child);
                 return child.AddComponent<ValidationBinding>();

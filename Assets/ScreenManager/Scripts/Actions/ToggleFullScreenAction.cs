@@ -18,7 +18,6 @@
 
 using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace nickmaltbie.ScreenManager.Actions
@@ -48,7 +47,7 @@ namespace nickmaltbie.ScreenManager.Actions
             base.Awake();
             button = GetComponent<Button>();
             buttonText = button.GetComponentInChildren<UnityEngine.UI.Text>();
-            button.onClick.AddListener(this.ToggleFullScreen);
+            button.onClick.AddListener(ToggleFullScreen);
         }
 
         public void Update()
