@@ -18,7 +18,6 @@
 
 using System.Collections.Generic;
 using nickmaltbie.ScreenManager.Actions;
-using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -28,7 +27,7 @@ using static nickmaltbie.ScreenManager.Actions.RebindCompositeInput;
 namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
 {
     [TestFixture]
-    public class RebindCompositeInputButtonTests : TestBase
+    public class RebindCompositeInputButtonTests
     {
         private RebindCompositeInput rebinding;
         private Keyboard keyboard;
@@ -71,9 +70,6 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
                 rebinding.rebindingGroups[i] = group;
             }
 
-            // Ensure cleanup
-            RegisterGameObject(rebinding.gameObject);
-
             // Test by reading the settings
             rebinding.Awake();
             rebinding.Start();
@@ -92,9 +88,9 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
         }
 
         [TearDown]
-        public override void TearDown()
+        public void TearDown()
         {
-            base.TearDown();
+            GameObject.DestroyImmediate(rebinding.gameObject);
 
             // Remove rebinding override
             InputSystem.RemoveDevice(keyboard);

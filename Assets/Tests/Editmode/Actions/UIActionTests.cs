@@ -18,6 +18,7 @@
 
 using nickmaltbie.ScreenManager.Actions;
 using nickmaltbie.ScreenManager.Events;
+using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -27,20 +28,38 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
     /// Tests for various UI Actions such as connect, disconnect, quit game actions
     /// </summary>
     [TestFixture]
-    public class UIActionTests
+    public class UIActionTests : TestBase
     {
         private GameObject uiHolder;
 
         [SetUp]
-        public void Setup()
+        public override void Setup()
         {
+            base.Setup();
             uiHolder = new GameObject();
+            RegisterGameObject(uiHolder);
         }
 
-        [TearDown]
-        public void TearDown()
+        [Test]
+        public void ToggleFullScreenActionTests()
         {
-            GameObject.DestroyImmediate(uiHolder);
+            ToggleFullScreenAction toggle = uiHolder.AddComponent<ToggleFullScreenAction>();
+            var textObj = new GameObject();
+            RegisterGameObject(textObj);
+            textObj.transform.SetParent(uiHolder.transform);
+            textObj.AddComponent<UnityEngine.UI.Text>();
+            toggle.DebugAwake();
+
+            bool placeholder = false;
+            toggle.isFullScreen = () => placeholder;
+            toggle.setFullScreen = (v) => placeholder = v;
+
+            toggle.ToggleFullScreen();
+            toggle.Update();
+            Assert.IsTrue(placeholder);
+            toggle.ToggleFullScreen();
+            toggle.Update();
+            Assert.IsFalse(placeholder);
         }
 
         [Test]

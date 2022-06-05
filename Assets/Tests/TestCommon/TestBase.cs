@@ -19,6 +19,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.TestTools;
 
 namespace nickmaltbie.ScreenManager.TestCommon
@@ -26,7 +27,7 @@ namespace nickmaltbie.ScreenManager.TestCommon
     /// <summary>
     /// Basic unity test base class.
     /// </summary>
-    public class TestBase
+    public class TestBase : InputTestFixture
     {
         /// <summary>
         /// List of game objects created as part of the test.
@@ -53,8 +54,10 @@ namespace nickmaltbie.ScreenManager.TestCommon
         /// Cleanup created objects in the basic test.
         /// </summary>
         [TearDown]
-        public virtual void TearDown()
+        public override void TearDown()
         {
+            base.TearDown();
+
             while (gameObjects.Count > 0)
             {
                 GameObject go = gameObjects[0];

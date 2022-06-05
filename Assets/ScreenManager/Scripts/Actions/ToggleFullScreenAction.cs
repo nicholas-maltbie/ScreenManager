@@ -16,14 +16,14 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace nickmaltbie.ScreenManager.Actions
 {
     /// <summary>
-    /// Change the fullscreen mode of the game.
+    /// Change the full screen mode of the game.
     /// </summary>
     public class ToggleFullScreenAction : Button
     {
@@ -33,22 +33,31 @@ namespace nickmaltbie.ScreenManager.Actions
         private Button button;
         private UnityEngine.UI.Text buttonText;
 
+        internal Func<bool> isFullScreen;
+
+        internal Action<bool> setFullScreen = (v) => Screen.fullScreen = v;
+
+        internal void DebugAwake()
+        {
+            Awake();
+        }
+
         protected override void Awake()
         {
             base.Awake();
             button = GetComponent<Button>();
             buttonText = button.GetComponentInChildren<UnityEngine.UI.Text>();
+            button.onClick.AddListener(ToggleFullScreen);
         }
 
         public void Update()
         {
-            buttonText.text = Screen.fullScreen ? whenFullScreen : whenWindowed;
+            buttonText.text = (isFullScreen?.Invoke() ?? Screen.fullScreen) ? whenFullScreen : whenWindowed;
         }
 
-        public override void OnPointerDown(PointerEventData eventData)
+        public void ToggleFullScreen()
         {
-            base.OnPointerDown(eventData);
-            Screen.fullScreen = !Screen.fullScreen;
+            setFullScreen(!(isFullScreen?.Invoke() ?? Screen.fullScreen));
         }
     }
 }

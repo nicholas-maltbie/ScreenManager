@@ -16,23 +16,30 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
+using nickmaltbie.ScreenManager.Events;
+using nickmaltbie.ScreenManager.TestCommon;
+using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.TestTools;
 
-namespace nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager.Tests.EditMode.Events
 {
-    /// <summary>
-    /// Simple class to hide element on a specific runtime platform.
-    /// </summary>
-    public class HideOnPlatform : MonoBehaviour
+    [TestFixture]
+    public class LoadScreenOnEnableTests : TestBase
     {
-        public RuntimePlatform hidePlatform = RuntimePlatform.WebGLPlayer;
-
-        internal Func<RuntimePlatform> getPlatform;
-
-        public void Awake()
+        [Test]
+        public void Validate_PopulateVersion()
         {
-            gameObject.SetActive((getPlatform?.Invoke() ?? Application.platform) != hidePlatform);
+            LoadScreenOnEnable loadScreen = new GameObject().AddComponent<LoadScreenOnEnable>();
+
+            var target = new GameObject();
+            target.name = "target";
+
+            loadScreen.selectedScreen = target;
+
+            LogAssert.Expect(LogType.Log, "Attempting to set to screen target");
+
+            loadScreen.OnEnable();
         }
     }
 }

@@ -16,23 +16,4 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
-using UnityEngine;
-
-namespace nickmaltbie.ScreenManager
-{
-    /// <summary>
-    /// Simple class to hide element on a specific runtime platform.
-    /// </summary>
-    public class HideOnPlatform : MonoBehaviour
-    {
-        public RuntimePlatform hidePlatform = RuntimePlatform.WebGLPlayer;
-
-        internal Func<RuntimePlatform> getPlatform;
-
-        public void Awake()
-        {
-            gameObject.SetActive((getPlatform?.Invoke() ?? Application.platform) != hidePlatform);
-        }
-    }
-}
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("nickmaltbie.ScreenManager.Tests.EditMode")]

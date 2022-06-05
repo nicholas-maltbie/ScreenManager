@@ -16,15 +16,16 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
-namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
+namespace nickmaltbie.ScreenManager.Tests.EditMode
 {
     [TestFixture]
-    public class GameScreenTests
+    public class GameScreenTests : TestBase
     {
         public class TestScreenComponent : MonoBehaviour, IScreenComponent
         {
@@ -39,6 +40,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
         public void TestGameScreenLoading()
         {
             var go = new GameObject();
+            RegisterGameObject(go);
             GameScreen screen = go.AddComponent<GameScreen>();
             _ = go.AddComponent<PlayerInput>();
             _ = go.AddComponent<CanvasGroup>();
@@ -62,8 +64,6 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
             // Assert that components are unloaded correctly
             Assert.That(attachedComponent.unloaded, Is.EqualTo(1));
             Assert.That(childComponent.unloaded, Is.EqualTo(1));
-
-            GameObject.DestroyImmediate(go);
         }
     }
 }

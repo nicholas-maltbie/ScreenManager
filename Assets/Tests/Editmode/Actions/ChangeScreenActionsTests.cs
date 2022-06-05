@@ -35,6 +35,7 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
             var go = new GameObject();
             ScreenLoading.setupDisplay = false;
             changeScreen = go.AddComponent<ChangeScreenActions>();
+            changeScreen.runtimePlatform = () => RuntimePlatform.WindowsEditor;
 
             // Setup dropdowns
             changeScreen.displayDropdown = new GameObject().AddComponent<Dropdown>();
@@ -81,6 +82,14 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
             changeScreen.displayDropdown.onValueChanged?.Invoke(0);
             changeScreen.resolutionDropdown.onValueChanged?.Invoke(0);
             changeScreen.vsyncToggle.onValueChanged?.Invoke(false);
+        }
+
+        [Test]
+        public void TestSetupWebGLEmpty()
+        {
+            // Test setup on WebGL Platform
+            changeScreen.runtimePlatform = () => RuntimePlatform.WebGLPlayer;
+            changeScreen.Awake();
         }
 
         [Test]

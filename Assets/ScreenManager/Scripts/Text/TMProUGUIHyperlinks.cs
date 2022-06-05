@@ -16,6 +16,7 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -37,21 +38,24 @@ namespace nickmaltbie.ScreenManager.Text
     public class TMProUGUIHyperlinks : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField]
-        private Color32 hoveredColor = new Color32(0x00, 0x59, 0xFF, 0xFF);
+        internal Color32 hoveredColor = new Color32(0x00, 0x59, 0xFF, 0xFF);
         [SerializeField]
-        private Color32 pressedColor = new Color32(0x00, 0x00, 0xB7, 0xFF);
+        internal Color32 pressedColor = new Color32(0x00, 0x00, 0xB7, 0xFF);
         [SerializeField]
-        private Color32 usedColor = new Color32(0xFF, 0x00, 0xFF, 0xFF);
+        internal Color32 usedColor = new Color32(0xFF, 0x00, 0xFF, 0xFF);
         [SerializeField]
-        private Color32 usedHoveredColor = new Color32(0xFD, 0x5E, 0xFD, 0xFF);
+        internal Color32 usedHoveredColor = new Color32(0xFD, 0x5E, 0xFD, 0xFF);
         [SerializeField]
-        private Color32 usedPressedColor = new Color32(0xCF, 0x00, 0xCF, 0xFF);
+        internal Color32 usedPressedColor = new Color32(0xCF, 0x00, 0xCF, 0xFF);
 
-        private List<Color32[]> startColors = new List<Color32[]>();
+        internal List<Color32[]> startColors = new List<Color32[]>();
         private TextMeshProUGUI textMeshPro;
         private Dictionary<int, bool> usedLinks = new Dictionary<int, bool>();
-        private int hoveredLinkIndex = -1;
-        private int pressedLinkIndex = -1;
+        internal int hoveredLinkIndex = -1;
+        internal int pressedLinkIndex = -1;
+
+        internal Func<int> getLinkIndex;
+        internal Action<string> openLink = (link) => Application.OpenURL(link);
 
         public void Awake()
         {
@@ -107,7 +111,7 @@ namespace nickmaltbie.ScreenManager.Text
                 startColors.ForEach(c => c[0] = c[1] = c[2] = c[3] = usedColor);
                 usedLinks[linkIndex] = true;
                 UnityEngine.Debug.Log($"Opening link - {linkInfo.GetLinkID()}");
-                Application.OpenURL(linkInfo.GetLinkID());
+                openLink(linkInfo.GetLinkID());
             }
 
             pressedLinkIndex = -1;
@@ -161,7 +165,8 @@ namespace nickmaltbie.ScreenManager.Text
 
         public int GetLinkIndex()
         {
-            return TMP_TextUtilities.FindIntersectingLink(textMeshPro, Mouse.current.position.ReadValue(), null);
+            return getLinkIndex?.Invoke() ??
+                TMP_TextUtilities.FindIntersectingLink(textMeshPro, Mouse.current.position.ReadValue(), null);
         }
 
         public List<Color32[]> SetLinkColor(int linkIndex, Color32 color)

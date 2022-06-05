@@ -16,23 +16,39 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
+using nickmaltbie.ScreenManager.TestCommon;
+using NUnit.Framework;
 using UnityEngine;
 
-namespace nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager.Tests.EditMode
 {
-    /// <summary>
-    /// Simple class to hide element on a specific runtime platform.
-    /// </summary>
-    public class HideOnPlatform : MonoBehaviour
+    [TestFixture]
+    public class HideOnPlatformTests : TestBase
     {
-        public RuntimePlatform hidePlatform = RuntimePlatform.WebGLPlayer;
-
-        internal Func<RuntimePlatform> getPlatform;
-
-        public void Awake()
+        [Test]
+        public void Validate_HideOnPlatform()
         {
-            gameObject.SetActive((getPlatform?.Invoke() ?? Application.platform) != hidePlatform);
+            RuntimePlatform appPlatform = RuntimePlatform.WebGLPlayer;
+            var go = new GameObject();
+            HideOnPlatform hide = go.AddComponent<HideOnPlatform>();
+            hide.getPlatform = () => appPlatform;
+
+            hide.hidePlatform = RuntimePlatform.WebGLPlayer;
+            hide.Awake();
+
+            Assert.IsFalse(go.activeSelf);
+
+            hide.hidePlatform = RuntimePlatform.LinuxPlayer;
+            hide.Awake();
+
+            Assert.IsTrue(go.activeSelf);
+
+            appPlatform = RuntimePlatform.LinuxPlayer;
+            hide.Awake();
+
+            Assert.IsFalse(go.activeSelf);
+
+            RegisterGameObject(go);
         }
     }
 }
