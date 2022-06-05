@@ -275,7 +275,7 @@ namespace nickmaltbie.ScreenManager
             UnityEngine.Debug.Log($"Attempting to set to screen {name}");
             var request = new RequestScreenChangeEventArgs();
             request.newScreen = name;
-            UIManager.Instance.RequestScreenChange?.Invoke(sender, request);
+            UIManager.Instance?.RequestScreenChange.Invoke(sender, request);
         }
     }
 }

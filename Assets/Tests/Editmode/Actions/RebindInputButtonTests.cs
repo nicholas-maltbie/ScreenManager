@@ -27,7 +27,7 @@ using UnityEngine.UI;
 namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
 {
     [TestFixture]
-    public class RebindInputButtonTests : TestBase
+    public class RebindInputButtonTests
     {
         private RebindInputButton rebinding;
         private Keyboard keyboard;
@@ -59,15 +59,13 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Actions
             // Test by reading the settings
             rebinding.Awake();
             rebinding.Start();
-
-            RegisterGameObject(rebinding.gameObject);
         }
 
         [TearDown]
-        public override void TearDown()
+        public void TearDown()
         {
-            base.TearDown();
             GameObject.DestroyImmediate(inputActionAsset);
+            GameObject.DestroyImmediate(rebinding.gameObject);
 
             // Remove rebinding override
             InputSystem.RemoveDevice(keyboard);

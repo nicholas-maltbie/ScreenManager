@@ -161,11 +161,8 @@ namespace nickmaltbie.ScreenManager.Actions
             string overridePath = inputAction.action.bindings[bindingIndex].overridePath;
             foreach (PlayerInput input in GameObject.FindObjectsOfType<PlayerInput>())
             {
-                InputAction action = input.actions.FindAction(inputAction.name);
-                if (action != null)
-                {
-                    action.ApplyBindingOverride(bindingIndex, overridePath);
-                }
+                input.actions.FindAction(inputAction.name)?
+                    .ApplyBindingOverride(bindingIndex, overridePath);
             }
 
             rebindingGroups[index].bindingDisplayNameText.text = GetKeyReadableName(bindingIndex);

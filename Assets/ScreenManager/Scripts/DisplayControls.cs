@@ -52,7 +52,7 @@ namespace nickmaltbie.ScreenManager
                     out string controlPath,
                         InputBinding.DisplayStringOptions.DontUseShortDisplayNames);
 
-                string names = string.Join("|", Enumerable.Range(1, 4)
+                string names = string.Join("|", Enumerable.Range(1, action.bindings.Count - 1)
                     .Select(i => InputControlPath.ToHumanReadableString(
                         action.bindings[i].effectivePath,
                         InputControlPath.HumanReadableStringOptions.OmitDevice)));
@@ -73,7 +73,7 @@ namespace nickmaltbie.ScreenManager
 
             foreach (InputActionReference inputAction in inputActions)
             {
-                lines.Add($"{inputAction.name}: {GetKeyReadableName(inputAction.action)}");
+                lines.Add($"{inputAction.action.name}: {GetKeyReadableName(inputAction.action)}");
             }
 
             GetComponent<UnityEngine.UI.Text>().text = string.Join("\n", lines);

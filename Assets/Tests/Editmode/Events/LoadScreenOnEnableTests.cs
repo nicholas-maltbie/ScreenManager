@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2022 Nicholas Maltbie
+// Copyright (C) 2022 Nicholas Maltbie
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -17,22 +17,31 @@
 // SOFTWARE.
 
 using System;
+using nickmaltbie.ScreenManager.Events;
+using nickmaltbie.ScreenManager.TestCommon;
+using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.TestTools;
+using UnityEngine.UI;
 
-namespace nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager.Tests.EditMode.Events
 {
-    /// <summary>
-    /// Simple class to hide element on a specific runtime platform.
-    /// </summary>
-    public class HideOnPlatform : MonoBehaviour
+    [TestFixture]
+    public class LoadScreenOnEnableTests : TestBase
     {
-        public RuntimePlatform hidePlatform = RuntimePlatform.WebGLPlayer;
-
-        internal Func<RuntimePlatform> getPlatform;
-
-        public void Awake()
+        [Test]
+        public void Validate_PopulateVersion()
         {
-            gameObject.SetActive((getPlatform?.Invoke() ?? Application.platform) != hidePlatform);
+            LoadScreenOnEnable loadScreen = new GameObject().AddComponent<LoadScreenOnEnable>();
+
+            var target = new GameObject();
+            target.name = "target";
+
+            loadScreen.selectedScreen = target;
+
+            LogAssert.Expect(LogType.Log, "Attempting to set to screen target");
+
+            loadScreen.OnEnable();
         }
     }
 }
