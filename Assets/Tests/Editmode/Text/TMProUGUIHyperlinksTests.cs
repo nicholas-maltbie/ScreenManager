@@ -16,6 +16,7 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.Collections;
 using nickmaltbie.ScreenManager.TestCommon;
 using nickmaltbie.ScreenManager.Text;
 using NUnit.Framework;
@@ -23,6 +24,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.TestTools;
 
 namespace nickmaltbie.ScreenManager.Tests.EditMode.Text
 {
@@ -34,25 +36,54 @@ namespace nickmaltbie.ScreenManager.Tests.EditMode.Text
 
         private int overrideLinkIndex = -1;
 
-        [SetUp]
-        public void SetUp()
+        [UnitySetUp]
+        public IEnumerator SetUp()
         {
+            // Ensure a camera exists in the scene
+            GameObject camera = new GameObject();
+            camera.AddComponent<Camera>();
+            camera.tag = "MainCamera";
+
+            GameObject canvas = new GameObject();
+            canvas.AddComponent<Canvas>();
+
+            yield return null;
+
             GameObject go = new GameObject();
-            RegisterGameObject(go);
+            go.transform.SetParent(canvas.transform);
             text = go.AddComponent<TextMeshProUGUI>();
             links = go.AddComponent<TMProUGUIHyperlinks>();
+            text.material = new Material(Shader.Find("TextMeshPro/Mobile/Distance Field"));
+
+            text.ForceMeshUpdate();
 
             links.Awake();
 
             links.getLinkIndex = () => overrideLinkIndex;
+            text.text = "<link=\"https://nickmaltbie.com\">https://nickmaltbie.com</link>";
+
+            go.SetActive(true);
+
+            RegisterGameObject(go);
+            RegisterGameObject(camera);
         }
 
-        [Test]
-        public void Validate_LoadHyperlink()
+        [UnityTest]
+        public IEnumerator Validate_LoadHyperlink()
         {
-            text.text = "<a href=\"google.com\">link</a>";
+            yield return null;
+            yield return null;
+            yield return null;
+            yield return null;
+            overrideLinkIndex = 0;
+            text.ForceMeshUpdate();
 
-            links.LateUpdate();
+            UnityEngine.Debug.Log(text.textInfo.characterCount);
+
+            yield return null;
+            yield return null;
+            yield return null;
+            yield return null;
         }
     }
 }
