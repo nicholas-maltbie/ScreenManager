@@ -64,6 +64,7 @@ public class ExportPackage : MonoBehaviour
     [MenuItem("Build/Package/Export Example Package")]
     public static void ExportExampleAssetPackage()
     {
+        Directory.CreateDirectory(Path.Combine(Directory.GetParent(Application.dataPath).FullName, ScriptBatch.BuildDirectory));
         AssetDatabase.ExportPackage(
             AssetPaths,
             PackagePath,
@@ -78,6 +79,7 @@ public class ExportPackage : MonoBehaviour
     [MenuItem("Build/Package/Export Scripts Package")]
     public static void ExportScriptsAssetPackage()
     {
+        Directory.CreateDirectory(Path.Combine(Directory.GetParent(Application.dataPath).FullName, ScriptBatch.BuildDirectory));
         AssetDatabase.ExportPackage(
             ScriptsAssetPaths,
             ScriptPackagePath,
