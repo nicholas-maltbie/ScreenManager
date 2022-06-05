@@ -182,10 +182,12 @@ namespace nickmaltbie.ScreenManager.Actions
             }
         }
 
+        internal Func<RuntimePlatform> runtimePlatform = () => Application.platform;
+
         public void Awake()
         {
             // Skip setup on WebGL Build
-            if (Application.platform == RuntimePlatform.WebGLPlayer)
+            if (runtimePlatform() == RuntimePlatform.WebGLPlayer)
             {
                 return;
             }
