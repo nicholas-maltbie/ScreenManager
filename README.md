@@ -23,6 +23,10 @@ at this URL:
 For more details about installing a project via git, see unity's documentation
 on [Installing form a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html#:~:text=%20Select%20Add%20package%20from%20git%20URL%20from,repository%20directly%20rather%20than%20from%20a%20package%20registry.).
 
+_Note_ if you would like to use the test assemblies in this project, you must
+include the `com.unity.inputsystem` and `com.nickmaltbie.screenmanager` as
+part of the `testables` in your `Packages/manifest.json` for your unity project.
+
 ## Documentation
 
 Documentation on the project and scripting API is found at
