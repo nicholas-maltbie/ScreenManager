@@ -12,7 +12,7 @@ I'll happy include any suggestions or ideas into the project.
 
 Install the latest version of the project by importing a project via git
 at this URL:
-`https://github.com/nicholas-maltbie/ScreenManager.git`
+`https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/`
 
 For more details about installing a project via git, see unity's documentation
 on [Installing form a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html#:~:text=%20Select%20Add%20package%20from%20git%20URL%20from,repository%20directly%20rather%20than%20from%20a%20package%20registry.).

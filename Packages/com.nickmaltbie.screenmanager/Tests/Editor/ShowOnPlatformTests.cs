@@ -23,7 +23,7 @@ using UnityEngine;
 namespace com.nickmaltbie.ScreenManager.Editor.Tests
 {
     [TestFixture]
-    public class ShowOnPlatformTests : TestBase
+    public class ShowOnPlatformTests : ScreenManagerTestBase
     {
         [Test]
         public void Validate_ShowOnPlatform()

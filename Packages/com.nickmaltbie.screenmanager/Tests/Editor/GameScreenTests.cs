@@ -25,7 +25,7 @@ using UnityEngine.InputSystem.UI;
 namespace com.nickmaltbie.ScreenManager.Editor.Tests
 {
     [TestFixture]
-    public class GameScreenTests : TestBase
+    public class GameScreenTests : ScreenManagerTestBase
     {
         public class TestScreenComponent : MonoBehaviour, IScreenComponent
         {

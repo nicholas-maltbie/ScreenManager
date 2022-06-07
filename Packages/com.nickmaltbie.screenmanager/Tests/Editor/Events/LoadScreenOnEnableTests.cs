@@ -25,7 +25,7 @@ using UnityEngine.TestTools;
 namespace com.nickmaltbie.ScreenManager.Editor.Tests.Events
 {
     [TestFixture]
-    public class LoadScreenOnEnableTests : TestBase
+    public class LoadScreenOnEnableTests : ScreenManagerTestBase
     {
         [Test]
         public void Validate_PopulateVersion()

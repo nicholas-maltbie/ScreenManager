@@ -27,7 +27,7 @@ using UnityEngine;
 namespace com.nickmaltbie.ScreenManager.Editor.Tests.Text
 {
     [TestFixture]
-    public class TMProUGUIHyperlinksTests : TestBase
+    public class TMProUGUIHyperlinksTests : ScreenManagerTestBase
     {
         private TextMeshProUGUI text;
         private TMProUGUIHyperlinks links;

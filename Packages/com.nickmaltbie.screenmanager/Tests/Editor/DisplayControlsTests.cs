@@ -25,7 +25,7 @@ using UnityEngine.InputSystem;
 namespace com.nickmaltbie.ScreenManager.Editor.Tests
 {
     [TestFixture]
-    public class DisplayControlsTests : TestBase
+    public class DisplayControlsTests : ScreenManagerTestBase
     {
         [Test]
         public void Validate_DisplayControls()

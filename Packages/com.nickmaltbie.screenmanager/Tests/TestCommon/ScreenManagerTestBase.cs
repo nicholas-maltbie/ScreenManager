@@ -27,7 +27,7 @@ namespace com.nickmaltbie.ScreenManager.TestCommon
     /// <summary>
     /// Basic unity test base class.
     /// </summary>
-    public class TestBase : InputTestFixture
+    public class ScreenManagerTestBase : InputTestFixture
     {
         /// <summary>
         /// List of game objects created as part of the test.

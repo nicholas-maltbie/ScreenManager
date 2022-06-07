@@ -28,7 +28,7 @@ namespace com.nickmaltbie.ScreenManager.Editor.Tests.Actions
     /// Tests for various UI Actions such as connect, disconnect, quit game actions
     /// </summary>
     [TestFixture]
-    public class UIActionTests : TestBase
+    public class UIActionTests : ScreenManagerTestBase
     {
         private GameObject uiHolder;
 
