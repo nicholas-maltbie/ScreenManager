@@ -1,7 +1,7 @@
 {
   "name": "com.nickmaltbie.screenmanager",
   "displayName": "Screen Manager",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "unity": "2021.1",
   "unityRelease": "19f1",
   "description": "Screen Manager to manage and preset UI screens to show to the player.",
@@ -15,10 +15,6 @@
     "ui",
     "screen"
   ],
-  "dependencies": {
-    "com.unity.inputsystem": "1.0.2",
-    "com.unity.textmeshpro": "3.0.6"
-  },
   "type": "library",
   "samples": [
     {
@@ -26,5 +22,10 @@
       "description": "Contains examples of setting up rebinding for controls with a basic UI Manager",
       "path": "Samples/Rebinding"
     }
-  ]
+  ],
+  "dependencies": {
+    "com.unity.inputsystem": "1.0.2",
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "testables": ["com.unity.inputsystem"]
 }
