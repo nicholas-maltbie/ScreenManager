@@ -3,12 +3,9 @@
         {
             "src": [
                 {
-                    "src": "..",
+                    "src": "../Packages/com.nickmaltbie.screenmanager",
                     "files": [
-                        "Assets/**/*.cs"
-                    ],
-                    "exclude": [
-                        "Assets/Plugins/**"
+                        "**/*.cs"
                     ]
                 }
             ],
@@ -49,10 +46,10 @@
         ],
         "overwrite": [
             {
-                "src": "..",
+                "src": "../Packages/com.nickmaltbie.screenmanager",
                 "files": [
-                    "Assets/**/Scripts/**/*.md",
-                    "Assets/**/Tests/**/*.md"
+                    "ScreenManager/**/*.md",
+                    "Tests/**/*.md"
                 ]
             }
         ],

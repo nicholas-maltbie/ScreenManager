@@ -35,7 +35,12 @@ public class ScriptBatch : IPostprocessBuildWithReport, IPreprocessBuildWithRepo
     /// <summary>
     /// Directory of the assets folder relative to project root.
     /// </summary>
-    public const string AssetDirectory = "Assets";
+    public const string AssetsDirectory = "Assets";
+
+    /// <summary>
+    /// Directory of the packages folder relative to project root.
+    /// </summary>
+    public const string PackagesDirectory = "Packages";
 
     /// <summary>
     /// Descriptive string of the application version.
@@ -58,7 +63,7 @@ public class ScriptBatch : IPostprocessBuildWithReport, IPreprocessBuildWithRepo
     /// <returns></returns>
     public static string[] GameScenes => new[]
     {
-        System.IO.Path.Combine(ScriptBatch.AssetDirectory, Constants.ProjectName, "Scenes", "ExampleScene.unity")
+        System.IO.Path.Combine(ScriptBatch.AssetsDirectory, "Scenes", "ExampleScene.unity")
     };
 
     /// <summary>

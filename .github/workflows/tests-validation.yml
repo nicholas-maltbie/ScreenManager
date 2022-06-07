@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - 'push-action/**'
+      - 'main'
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2021_1 }}
@@ -29,7 +30,7 @@ jobs:
           unityVersion: 2021.1.19f1
           testMode: All
           checkName: All Test Results
-          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+ScreenManager'
+          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+com.nickmaltbie.ScreenManager'
           customParameters: "-burst-disable-compilation -nographics"
 
       - name: Copy Coverage Results

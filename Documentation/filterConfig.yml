@@ -1,9 +1,9 @@
 apiRules:
 - include:
-    uidRegex: ^nickmaltbie\.ScreenManager
+    uidRegex: ^com\.nickmaltbie\.ScreenManager
     type: Namespace
 - include:
-    uidRegex: ^nickmaltbie\.ScreenManager\.*
+    uidRegex: ^com\.nickmaltbie\.ScreenManager\.*
     type: Namespace
 - exclude:
     uidRegex: .*

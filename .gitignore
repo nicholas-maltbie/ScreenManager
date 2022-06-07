@@ -100,3 +100,4 @@ Documentation/LICENSE.txt
 Documentation/obj/
 _site/
 Assets/**/obj*
+Packages/**/obj*
