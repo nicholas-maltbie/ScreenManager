@@ -40,7 +40,7 @@ namespace com.nickmaltbie.ScreenManager.Editor.Tests.Actions
     }
 
     [TestFixture]
-    public class ResetBindingButtonTests : TestBase
+    public class ResetBindingButtonTests : ScreenManagerTestBase
     {
         [Test]
         public void Validate_ResetBindings()

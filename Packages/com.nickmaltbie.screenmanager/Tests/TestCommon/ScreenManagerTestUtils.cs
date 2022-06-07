@@ -24,7 +24,7 @@ namespace com.nickmaltbie.ScreenManager.TestCommon
     /// <summary>
     /// Unity test utilities.
     /// </summary>
-    public static class TestUtils
+    public static class ScreenManagerTestUtils
     {
         /// <summary>
         /// Bound range for test utils validation of number in range.

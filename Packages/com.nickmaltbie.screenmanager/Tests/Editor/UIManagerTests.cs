@@ -87,7 +87,7 @@ namespace com.nickmaltbie.ScreenManager.Editor.Tests
     /// Test to validate actions of UIManager.
     /// </summary>
     [TestFixture]
-    public class UIManagerTests : TestBase
+    public class UIManagerTests : ScreenManagerTestBase
     {
         /// <summary>
         /// UIManager for controlling ui actions.

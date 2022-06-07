@@ -23,7 +23,7 @@ using UnityEngine;
 namespace com.nickmaltbie.ScreenManager.Editor.Tests
 {
     [TestFixture]
-    public class PopulateVersionTests : TestBase
+    public class PopulateVersionTests : ScreenManagerTestBase
     {
         [Test]
         public void Validate_PopulateVersion()

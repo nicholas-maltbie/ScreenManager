@@ -23,7 +23,7 @@ using UnityEngine;
 namespace com.nickmaltbie.ScreenManager.Editor.Tests
 {
     [TestFixture]
-    public class HideOnPlatformTests : TestBase
+    public class HideOnPlatformTests : ScreenManagerTestBase
     {
         [Test]
         public void Validate_HideOnPlatform()

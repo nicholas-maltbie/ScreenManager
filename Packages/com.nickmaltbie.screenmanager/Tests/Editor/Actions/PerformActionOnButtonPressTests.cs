@@ -30,7 +30,7 @@ using static UnityEngine.InputSystem.InputAction;
 namespace com.nickmaltbie.ScreenManager.Editor.Tests.Actions
 {
     [TestFixture]
-    public class PerformActionOnButtonPressTests : TestBase
+    public class PerformActionOnButtonPressTests : ScreenManagerTestBase
     {
         [UnityTest]
         public IEnumerator Validate_PerformActionOnButtonPressTests()
