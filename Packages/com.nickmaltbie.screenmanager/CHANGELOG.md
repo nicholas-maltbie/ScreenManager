@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.0.2] - TBD
+## In Progress
 
 Minor changes to documentation
 * Included information on how to reference a specific tag of the project
