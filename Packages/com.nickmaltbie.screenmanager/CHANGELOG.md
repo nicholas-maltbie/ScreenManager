@@ -8,6 +8,9 @@ Minor changes to documentation
 * Included information on how to reference a specific tag of the project
     when importing the library.
 
+Minor Bugfixes
+* Corrected some import errors when project is imported
+
 ## [2.0.1] - 2022-06-07
 
 Minor changes to documentation
