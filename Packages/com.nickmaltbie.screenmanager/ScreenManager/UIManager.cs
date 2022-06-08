@@ -23,7 +23,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-namespace com.nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager
 {
     /// <summary>
     /// Class to hold arguments for showing a new screen

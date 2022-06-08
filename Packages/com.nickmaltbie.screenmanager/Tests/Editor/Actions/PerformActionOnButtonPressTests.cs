@@ -17,17 +17,17 @@
 // SOFTWARE.
 
 using System.Collections;
-using com.nickmaltbie.ScreenManager.Actions;
-using com.nickmaltbie.ScreenManager.TestCommon;
+using nickmaltbie.ScreenManager.Actions;
+using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.TestTools;
-using static com.nickmaltbie.ScreenManager.Actions.PerformActionOnButtonPress;
+using static nickmaltbie.ScreenManager.Actions.PerformActionOnButtonPress;
 using static UnityEngine.InputSystem.InputAction;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests.Actions
+namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
 {
     [TestFixture]
     public class PerformActionOnButtonPressTests : ScreenManagerTestBase

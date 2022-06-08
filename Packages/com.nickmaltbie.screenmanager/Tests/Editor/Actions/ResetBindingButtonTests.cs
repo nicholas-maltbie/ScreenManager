@@ -17,12 +17,12 @@
 // SOFTWARE.
 
 using System.Linq;
-using com.nickmaltbie.ScreenManager.Actions;
-using com.nickmaltbie.ScreenManager.TestCommon;
+using nickmaltbie.ScreenManager.Actions;
+using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests.Actions
+namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
 {
     internal class ValidationBinding : MonoBehaviour, IBindingControl
     {

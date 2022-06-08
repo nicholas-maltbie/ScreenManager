@@ -23,7 +23,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
-namespace com.nickmaltbie.ScreenManager.Actions
+namespace nickmaltbie.ScreenManager.Actions
 {
     /// <summary>
     /// Perform an action on button press.

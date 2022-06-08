@@ -22,7 +22,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace com.nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager
 {
     [RequireComponent(typeof(UnityEngine.UI.Text))]
     public class DisplayControls : MonoBehaviour, IScreenComponent

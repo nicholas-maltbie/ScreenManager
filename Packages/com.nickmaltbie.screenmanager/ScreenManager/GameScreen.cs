@@ -20,7 +20,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
-namespace com.nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager
 {
     /// <summary>
     /// Game screen that can be hidden or shown to the player

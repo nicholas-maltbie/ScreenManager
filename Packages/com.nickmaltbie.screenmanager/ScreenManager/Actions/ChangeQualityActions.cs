@@ -21,7 +21,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace com.nickmaltbie.ScreenManager.Actions
+namespace nickmaltbie.ScreenManager.Actions
 {
     /// <summary>
     /// Class to setup dropdown that controls various quality level 

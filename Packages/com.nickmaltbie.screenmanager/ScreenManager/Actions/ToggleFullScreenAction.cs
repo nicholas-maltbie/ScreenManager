@@ -20,7 +20,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace com.nickmaltbie.ScreenManager.Actions
+namespace nickmaltbie.ScreenManager.Actions
 {
     /// <summary>
     /// Change the full screen mode of the game.

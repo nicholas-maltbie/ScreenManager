@@ -18,7 +18,7 @@
 
 using UnityEngine;
 
-namespace com.nickmaltbie.ScreenManager.Events
+namespace nickmaltbie.ScreenManager.Events
 {
     /// <summary>
     /// Simple class to load screen when enabled

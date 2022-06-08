@@ -18,7 +18,7 @@
 
 using UnityEngine;
 
-namespace com.nickmaltbie.ScreenManager.Actions
+namespace nickmaltbie.ScreenManager.Actions
 {
     /// <summary>
     /// Class with behaviour to quit game

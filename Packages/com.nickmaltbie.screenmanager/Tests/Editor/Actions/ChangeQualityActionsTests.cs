@@ -16,12 +16,12 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using com.nickmaltbie.ScreenManager.Actions;
+using nickmaltbie.ScreenManager.Actions;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests.Actions
+namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
 {
     [TestFixture]
     public class ChangeQualityActionsTests

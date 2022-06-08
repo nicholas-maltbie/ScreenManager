@@ -24,7 +24,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace com.nickmaltbie.ScreenManager.Actions
+namespace nickmaltbie.ScreenManager.Actions
 {
     /// <summary>
     /// Screen loading status information

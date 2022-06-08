@@ -20,7 +20,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests
+namespace nickmaltbie.ScreenManager.Editor.Tests
 {
     [TestFixture]
     public class TabStripTests

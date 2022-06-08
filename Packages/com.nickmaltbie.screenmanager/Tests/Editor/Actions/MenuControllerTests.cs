@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests.Actions
+namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
 {
     /// <summary>
     /// Tests for Menu Controller Tests

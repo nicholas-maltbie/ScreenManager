@@ -16,4 +16,4 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("com.nickmaltbie.ScreenManager.Editor.Tests")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("nickmaltbie.ScreenManager.Editor.Tests")]

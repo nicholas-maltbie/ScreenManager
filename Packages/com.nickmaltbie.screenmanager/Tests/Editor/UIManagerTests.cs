@@ -16,14 +16,14 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests
+namespace nickmaltbie.ScreenManager.Editor.Tests
 {
     using System.Collections;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
-    using com.nickmaltbie.ScreenManager.TestCommon;
+    using nickmaltbie.ScreenManager.TestCommon;
     using NUnit.Framework;
     using UnityEngine;
     using UnityEngine.TestTools;

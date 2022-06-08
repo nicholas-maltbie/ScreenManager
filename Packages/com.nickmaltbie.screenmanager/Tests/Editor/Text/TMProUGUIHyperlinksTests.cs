@@ -18,13 +18,13 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using com.nickmaltbie.ScreenManager.TestCommon;
-using com.nickmaltbie.ScreenManager.Text;
+using nickmaltbie.ScreenManager.TestCommon;
+using nickmaltbie.ScreenManager.Text;
 using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests.Text
+namespace nickmaltbie.ScreenManager.Editor.Tests.Text
 {
     [TestFixture]
     public class TMProUGUIHyperlinksTests : ScreenManagerTestBase
