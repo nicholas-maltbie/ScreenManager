@@ -18,7 +18,7 @@
 
 using UnityEngine;
 
-namespace com.nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager
 {
     /// <summary>
     /// Simple class to abstract commands to change UI for a menu screen

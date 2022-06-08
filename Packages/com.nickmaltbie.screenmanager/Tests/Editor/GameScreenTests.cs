@@ -16,13 +16,13 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using com.nickmaltbie.ScreenManager.TestCommon;
+using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests
+namespace nickmaltbie.ScreenManager.Editor.Tests
 {
     [TestFixture]
     public class GameScreenTests : ScreenManagerTestBase

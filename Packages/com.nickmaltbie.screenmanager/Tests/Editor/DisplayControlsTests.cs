@@ -17,12 +17,12 @@
 // SOFTWARE.
 
 using System.Linq;
-using com.nickmaltbie.ScreenManager.TestCommon;
+using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests
+namespace nickmaltbie.ScreenManager.Editor.Tests
 {
     [TestFixture]
     public class DisplayControlsTests : ScreenManagerTestBase

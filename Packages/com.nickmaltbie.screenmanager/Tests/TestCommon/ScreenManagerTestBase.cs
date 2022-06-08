@@ -22,7 +22,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.TestTools;
 
-namespace com.nickmaltbie.ScreenManager.TestCommon
+namespace nickmaltbie.ScreenManager.TestCommon
 {
     /// <summary>
     /// Basic unity test base class.

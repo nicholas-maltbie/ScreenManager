@@ -19,7 +19,7 @@
 using System;
 using UnityEngine;
 
-namespace com.nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager
 {
     /// <summary>
     /// Simple class to hide element on a specific runtime platform.

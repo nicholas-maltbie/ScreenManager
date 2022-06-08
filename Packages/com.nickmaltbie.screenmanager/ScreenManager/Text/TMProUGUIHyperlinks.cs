@@ -23,7 +23,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-namespace com.nickmaltbie.ScreenManager.Text
+namespace nickmaltbie.ScreenManager.Text
 {
     /// <summary>
     /// This class handles basic link color behavior, supports also underline (static only)

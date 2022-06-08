@@ -19,7 +19,7 @@
 using System;
 using UnityEngine;
 
-namespace com.nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager
 {
     /// <summary>
     /// Simple class to show an element on a specific runtime platform.

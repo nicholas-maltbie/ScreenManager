@@ -16,13 +16,13 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using com.nickmaltbie.ScreenManager.Actions;
-using com.nickmaltbie.ScreenManager.Events;
-using com.nickmaltbie.ScreenManager.TestCommon;
+using nickmaltbie.ScreenManager.Actions;
+using nickmaltbie.ScreenManager.Events;
+using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests.Actions
+namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
 {
     /// <summary>
     /// Tests for various UI Actions such as connect, disconnect, quit game actions

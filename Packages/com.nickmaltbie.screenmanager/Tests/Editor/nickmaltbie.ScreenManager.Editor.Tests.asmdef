@@ -1,10 +1,13 @@
 {
-    "name": "com.nickmaltbie.ScreenManager.TestCommon",
-    "rootNamespace": "com.nickmaltbie.ScreenManager.TestCommon",
+    "name": "nickmaltbie.ScreenManager.Editor.Tests",
+    "rootNamespace": "nickmaltbie.ScreenManager.Editor.Tests",
     "references": [
         "Unity.InputSystem",
         "Unity.InputSystem.TestFramework",
-        "com.nickmaltbie.ScreenManager"
+        "Unity.TextMeshPro",
+        "Unity.TextMeshPro.Tests",
+        "nickmaltbie.ScreenManager.TestCommon",
+        "nickmaltbie.ScreenManager"
     ],
     "optionalUnityReferences": [
         "TestAssemblies"
@@ -16,9 +19,9 @@
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "nunit.framework.dll"
+        "Moq.dll"
     ],
-    "autoReferenced": false,
+    "autoReferenced": true,
     "defineConstraints": [
         "UNITY_INCLUDE_TESTS"
     ],

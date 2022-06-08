@@ -17,13 +17,13 @@
 // SOFTWARE.
 
 using System.Linq;
-using com.nickmaltbie.ScreenManager.Actions;
+using nickmaltbie.ScreenManager.Actions;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests.Actions
+namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
 {
     [TestFixture]
     public class RebindInputButtonTests

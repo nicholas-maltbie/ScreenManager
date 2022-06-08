@@ -17,14 +17,14 @@
 // SOFTWARE.
 
 using System.Collections.Generic;
-using com.nickmaltbie.ScreenManager.Actions;
+using nickmaltbie.ScreenManager.Actions;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using static com.nickmaltbie.ScreenManager.Actions.RebindCompositeInput;
+using static nickmaltbie.ScreenManager.Actions.RebindCompositeInput;
 
-namespace com.nickmaltbie.ScreenManager.Editor.Tests.Actions
+namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
 {
     [TestFixture]
     public class RebindCompositeInputButtonTests

@@ -18,7 +18,7 @@
 
 using UnityEngine;
 
-namespace com.nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager
 {
     [RequireComponent(typeof(UnityEngine.UI.Text))]
     public class PopulateVersion : MonoBehaviour

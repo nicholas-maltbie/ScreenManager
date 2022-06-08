@@ -26,7 +26,7 @@ using UnityEngine.UI;
 // Code based on a nice tutorial provided by Mark Hedberg via their blog
 // https://www.hedberggames.com/blog/creating-ui-tabs-in-unity-part-1
 
-namespace com.nickmaltbie.ScreenManager
+namespace nickmaltbie.ScreenManager
 {
     [Serializable]
     public class TabPair
