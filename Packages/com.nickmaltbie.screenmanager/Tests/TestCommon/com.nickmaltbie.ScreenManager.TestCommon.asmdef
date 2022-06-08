@@ -4,9 +4,10 @@
     "references": [
         "Unity.InputSystem",
         "Unity.InputSystem.TestFramework",
-        "com.nickmaltbie.ScreenManager",
-        "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner"
+        "com.nickmaltbie.ScreenManager"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
     ],
     "includePlatforms": [
         "Editor"
