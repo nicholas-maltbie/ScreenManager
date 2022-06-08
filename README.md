@@ -23,6 +23,23 @@ at this URL:
 For more details about installing a project via git, see unity's documentation
 on [Installing form a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html#:~:text=%20Select%20Add%20package%20from%20git%20URL%20from,repository%20directly%20rather%20than%20from%20a%20package%20registry.).
 
+If you want to reference a specific tag of the project such as version `v2.0.1`,
+add a `#v2.0.1` to the end of the git URL. An example of importing `v2.0.1`
+would look like this:
+`https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/#2.0.1`
+
+For a full list of all tags, check the [ScreenManager Tags](https://github.com/nicholas-maltbie/ScreenManager/tags)
+list on github. I will usually associated a tag with each release of the project.
+
+If you do not include a tag, this means that your project will update whenever
+you reimport from main. This may cause some errors or problems due to
+experimental or breaking changes in the project.
+
+You can also import the project via a tarball if you download the source
+code and extract it on your local machine. Make sure to import
+via the package manifest defined at `Packages\com.nickmaltbie.screenmanager\package.json`
+within the project.
+
 _Note_ if you would like to use the test assemblies in this project, you must
 include the `com.unity.inputsystem` and `com.nickmaltbie.screenmanager` as
 part of the `testables` in your `Packages/manifest.json` for your unity project.
