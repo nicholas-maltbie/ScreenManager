@@ -12,6 +12,12 @@ Minor changes to documentation
 Minor Bugfixes
 * Corrected some import errors when project is imported
 
+Major Refactoring
+* Updated names of assemblies from `com.nickmaltbie.ScreenManager` to just
+    `nickmaltbie.ScreenManager` to be more consistent with naming conventions.
+    Project folder is still called `com.nickmaltbie.ScreenManager` to follow
+    convention from other unity packages with names `com.unity.xyz`.
+
 ## [2.0.1] - 2022-06-07
 
 Minor changes to documentation
