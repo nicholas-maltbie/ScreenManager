@@ -42,6 +42,15 @@
                     "*.md"
                 ],
                 "dest": "manual"
+            },
+            {
+                "src": "changelog",
+                "files":
+                [
+                    "toc.yml",
+                    "*.md"
+                ],
+                "dest": "changelog"
             }
         ],
         "overwrite": [
@@ -50,6 +59,9 @@
                 "files": [
                     "ScreenManager/**/*.md",
                     "Tests/**/*.md"
+                ],
+                "exclude": [
+                    "**/CHANGELOG.md"
                 ]
             }
         ],
