@@ -155,13 +155,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 576314974741431287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d794b5250a4b5429cf5cc8c0623a7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8297a121aa1f1d7448c7569dcafe0585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   screenPrefabs:
-  - {fileID: 486149923664253863, guid: a6b724ce986920c46859b833b6f1bc83, type: 3}
-  - {fileID: 3127225395034414389, guid: 77f3d4674d5aa254aba6cd0ff623b5c3, type: 3}
-  - {fileID: -1115252214597416267, guid: de594f0ca0c7e164fbcaade84840570f, type: 3}
+  - {fileID: 486149923664253863, guid: f10c1049cf1023643a6e62b66fcb3f9d, type: 3}
+  - {fileID: 3127225395034414389, guid: d926dc1c95f109649bf16be0ae3a3bb8, type: 3}
+  - {fileID: -1115252214597416267, guid: 9faf55cbf723c7341aa7b1fe72ea5c60, type: 3}
   initialScreen: 0
   inputActions: {fileID: -944628639613478452, guid: cd7e51aeaf5ab844ba9a3c53086a8e80, type: 3}
   maxScreenHistory: 100

@@ -145,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 453105032817049386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 890ef1d9eb023994b80e00773a98336b, type: 3}
+  m_Script: {fileID: 11500000, guid: e2fb97cf4d8e32d4589ee2bc2ae8623f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5258158326814739419
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 453105032817049386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f4397cc72cc4f34fb576f2615ecd1fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8e7ff05631dca43a0ca284dcee4209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hidePlatform: 17
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 481657535441082248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58ea8235c2cc53041b76229f3ef21ec7, type: 3}
+  m_Script: {fileID: 11500000, guid: 228f2d20e856a5e4f9c68f80dbfa5dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hoveredColor:
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3816567771485690116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bac7e8f23212441911f4b09b5b630c, type: 3}
+  m_Script: {fileID: 11500000, guid: fcb6a339a992dc14cab240f7b13c0634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   allowInputChanges: 1
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3816567771485690116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21739b2dd23d46847b42bf0f7019c199, type: 3}
+  m_Script: {fileID: 11500000, guid: 0112333afc49d124abe30e439f39df73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cursorLockMode: 0
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3816567771485690116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a93a4523ef70bf64b8799d5e38201ad9, type: 3}
+  m_Script: {fileID: 11500000, guid: 83f9754c0fefac0489dc239be5b48303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2376803856338810022
@@ -809,7 +809,7 @@ MonoBehaviour:
         m_MethodName: SetScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 6637053135914170328, guid: de594f0ca0c7e164fbcaade84840570f, type: 3}
+          m_ObjectArgument: {fileID: 6637053135914170328, guid: 9faf55cbf723c7341aa7b1fe72ea5c60, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1021,7 +1021,7 @@ MonoBehaviour:
         m_MethodName: SetScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 6101108449083475876, guid: a6b724ce986920c46859b833b6f1bc83, type: 3}
+          m_ObjectArgument: {fileID: 6101108449083475876, guid: f10c1049cf1023643a6e62b66fcb3f9d, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1035,14 +1035,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3816567771485690120}
     m_Modifications:
-    - target: {fileID: 3733915148585717349, guid: 102fe668775b4c6488cb9e652df0167f, type: 3}
+    - target: {fileID: 3733915148585717349, guid: 8e973e6a47ce1ac448b7e2096ccf2968, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 102fe668775b4c6488cb9e652df0167f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 8e973e6a47ce1ac448b7e2096ccf2968, type: 3}
 --- !u!224 &4767079529828849869 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3733915148585717349, guid: 102fe668775b4c6488cb9e652df0167f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3733915148585717349, guid: 8e973e6a47ce1ac448b7e2096ccf2968, type: 3}
   m_PrefabInstance: {fileID: 8212764274198238888}
   m_PrefabAsset: {fileID: 0}

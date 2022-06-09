@@ -19,6 +19,7 @@ Major Refactoring
     convention from other unity packages with names `com.unity.xyz`.
 * Setup sub assembly for `nickmaltbie.ScreenManager.Actions` to sort out the
     actions and resolve some import errors that I ran into earlier.
+* Regenerated meta files to stop some broken import errors for package.
 
 ## [2.0.1] - 2022-06-07
 
