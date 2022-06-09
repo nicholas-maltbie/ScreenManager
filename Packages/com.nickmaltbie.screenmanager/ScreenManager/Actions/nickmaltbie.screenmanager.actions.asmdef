@@ -1,0 +1,17 @@
+{
+    "name": "nickmaltbie.ScreenManager.Actions",
+    "rootNamespace": "nickmaltbie.ScreenManager.Actions",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:33ba47153cb20554cb9674037eacaed0"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
