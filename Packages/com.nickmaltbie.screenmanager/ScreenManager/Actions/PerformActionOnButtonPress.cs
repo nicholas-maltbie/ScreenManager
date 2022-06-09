@@ -28,7 +28,7 @@ namespace nickmaltbie.ScreenManager.Actions
     /// <summary>
     /// Perform an action on button press.
     /// </summary>
-    public class PerformActionOnButtonPress : MonoBehaviour, IScreenComponent
+    public class PerformActionOnButtonPress : MonoBehaviour, nickmaltbie.ScreenManager.IScreenComponent
     {
         [Serializable]
         public struct ActionEvent
