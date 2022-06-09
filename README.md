@@ -26,7 +26,7 @@ on [Installing form a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.htm
 If you want to reference a specific tag of the project such as version `v3.0.0`,
 add a `#v3.0.0` to the end of the git URL. An example of importing `v3.0.0`
 would look like this:
-`https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/#3.0.0`
+`https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/#v3.0.0`
 
 For a full list of all tags, check the [ScreenManager Tags](https://github.com/nicholas-maltbie/ScreenManager/tags)
 list on github. I will usually associated a tag with each release of the project.
