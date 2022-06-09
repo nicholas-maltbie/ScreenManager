@@ -14,10 +14,10 @@ Install the latest version of the project by importing a project via git
 at this URL:
 `https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/`
 
-If you want to reference a specific tag of the project such as version `v2.0.1`,
-add a `#v2.0.1` to the end of the git URL. An example of importing `v2.0.1`
+If you want to reference a specific tag of the project such as version `v3.0.0`,
+add a `#v3.0.0` to the end of the git URL. An example of importing `v3.0.0`
 would look like this:
-`https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/#2.0.1`
+`https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/#3.0.0`
 
 For a full list of all tags, check the [ScreenManager Tags](https://github.com/nicholas-maltbie/ScreenManager/tags)
 list on github. I will usually associated a tag with each release of the project.
