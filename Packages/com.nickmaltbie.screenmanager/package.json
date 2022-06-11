@@ -15,7 +15,6 @@
     "ui",
     "screen"
   ],
-  "type": "library",
   "samples": [
     {
       "displayName": "Rebinding Example",
