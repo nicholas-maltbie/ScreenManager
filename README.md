@@ -18,12 +18,14 @@ and is automatically deployed with each update to the codebase.
 
 Install the latest version of the project by importing a project via git
 at this URL:
-```
+
+```text
 https://github.com/nicholas-maltbie/ScreenManager.git#release/latest
 ```
 
 ( Or use this path to import without samples )
-```
+
+```text
 https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/
 ```
 
