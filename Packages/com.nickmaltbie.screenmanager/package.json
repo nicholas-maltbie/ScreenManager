@@ -19,7 +19,7 @@
     {
       "displayName": "Rebinding Example",
       "description": "Contains examples of setting up rebinding for controls with a basic UI Manager",
-      "path": "Samples/Rebinding"
+      "path": "Samples~/Rebinding"
     }
   ],
   "dependencies": {

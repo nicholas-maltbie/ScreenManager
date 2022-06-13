@@ -18,15 +18,19 @@ and is automatically deployed with each update to the codebase.
 
 Install the latest version of the project by importing a project via git
 at this URL:
-`https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/`
+```
+https://github.com/nicholas-maltbie/ScreenManager.git#release/latest
+```
 
-For more details about installing a project via git, see unity's documentation
-on [Installing form a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html#:~:text=%20Select%20Add%20package%20from%20git%20URL%20from,repository%20directly%20rather%20than%20from%20a%20package%20registry.).
+( Or use this path to import without samples )
+```
+https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/
+```
 
 If you want to reference a specific tag of the project such as version `v3.0.0`,
-add a `#v3.0.0` to the end of the git URL. An example of importing `v3.0.0`
+add a `#release/v3.0.0` to the end of the git URL. An example of importing `v3.0.0`
 would look like this:
-`https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/#v3.0.0`
+`https://github.com/nicholas-maltbie/ScreenManager.git#release/v3.0.0`
 
 For a full list of all tags, check the [ScreenManager Tags](https://github.com/nicholas-maltbie/ScreenManager/tags)
 list on github. I will usually associated a tag with each release of the project.
@@ -40,9 +44,8 @@ code and extract it on your local machine. Make sure to import
 via the package manifest defined at `Packages\com.nickmaltbie.screenmanager\package.json`
 within the project.
 
-_Note_ if you would like to use the test assemblies in this project, you must
-include the `com.unity.inputsystem` and `com.nickmaltbie.screenmanager` as
-part of the `testables` in your `Packages/manifest.json` for your unity project.
+For more details about installing a project via git, see unity's documentation
+on [Installing form a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html#:~:text=%20Select%20Add%20package%20from%20git%20URL%20from,repository%20directly%20rather%20than%20from%20a%20package%20registry.).
 
 ## Documentation
 

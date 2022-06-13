@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## In Progress
 
+* Updating build instructions to move `Samples` to `Samples~`.
+
 ## [3.0.0] - 2022-06-08
 
 Minor changes to documentation
