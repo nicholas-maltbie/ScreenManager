@@ -11,6 +11,22 @@ env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2021_1 }}
 
 jobs:
+  create-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: nschloe/action-cached-lfs-checkout@v1
+
+      - name: Setup Package
+        run: sh ./setup-package.sh
+
+      # Deploy build to release branch
+      - name: Push package
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: release/latest
+          force: true
+
   build-and-deploy-app:
     name: Build and Deploy for Product
     runs-on: ubuntu-latest

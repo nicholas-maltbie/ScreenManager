@@ -34,7 +34,7 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
             // Setup the object
             SoundAdjustActions audioSettings = new GameObject().AddComponent<SoundAdjustActions>();
             Slider slider = audioSettings.gameObject.AddComponent<Slider>();
-            AudioMixer audioMixer = AssetDatabase.LoadAssetAtPath<AudioMixer>("Packages/com.nickmaltbie.screenmanager/Samples/Rebinding/Sounds/Settings/AudioMixer.mixer");
+            AudioMixer audioMixer = AssetDatabase.LoadAssetAtPath<AudioMixer>("Assets/Samples/Rebinding/Sounds/Settings/AudioMixer.mixer");
             audioSettings.settingsGroups = new SoundAdjustActions.AudioMixerSettingsGroup[1];
             audioSettings.settingsGroups[0] = new SoundAdjustActions.AudioMixerSettingsGroup
             {
