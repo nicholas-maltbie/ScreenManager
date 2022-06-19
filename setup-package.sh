@@ -47,14 +47,15 @@ git mv ./Packages/com.nickmaltbie.screenmanager/* .
 
 git commit -m "Setup files for release"
 
-# Cleanup any files in the repo we don't care about
-git clean -xdf .
-
 # Push changes to repo if tag was provided
 if [ ! -z "$1" ]
 then
   # Push changes to original repo
   git branch -m "release/$1"
   git push --set-upstream origin "release/$1"
+
+  # Cleanup any files in the repo we don't care about
+  git checkout .
+  git clean -xdf .
   git checkout "$current_sha"
 fi
