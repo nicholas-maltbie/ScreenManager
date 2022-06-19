@@ -51,6 +51,5 @@ git checkout HEAD -- _keep
 
 # Move files from _keep to root folder
 git mv _keep/* .
-rm -rf _keep
 
 git commit -m "Setup files for release"
