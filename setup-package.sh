@@ -1,3 +1,14 @@
+# Checkout specific tag if one is provided
+if [ ! -z "$1" ]
+then
+  echo "Attempting to make release for tag $1"
+  if git rev-parse "$1" >/dev/null 2>&1; then
+    echo "Found tag $1, checking out changes"
+  else
+    echo "Tag $1 does not exist, aborting changes"
+  fi
+fi
+
 # Check if there are changes
 if [[ `git status --porcelain` ]]; then
   echo "Will not setup package if branch has changes" 1>&2
@@ -34,3 +45,10 @@ git commit -m "Setup files for release"
 
 # Cleanup any files in the repo we don't care about
 git clean -xdf .
+
+# Push changes to repo if tag was provided
+if [ ! -z "$1" ]
+then
+  # Push changes to original repo
+  git push --set-upstream git push --set-upstream origin/release/$1
+fi
