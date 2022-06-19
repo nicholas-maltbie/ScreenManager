@@ -26,5 +26,8 @@
     "com.unity.inputsystem": "1.0.2",
     "com.unity.textmeshpro": "3.0.6"
   },
-  "testables": ["com.unity.inputsystem"]
+  "testables": [
+    "com.unity.inputsystem"
+  ],
+  "license": "MIT"
 }

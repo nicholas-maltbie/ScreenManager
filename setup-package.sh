@@ -70,6 +70,12 @@ then
   git checkout . && git clean -xdf . && git checkout "$current_sha" && git checkout "$current_branch"
 fi
 
+# If user provided a npm token, publish changes
+if [ ! -z "${NODE_AUTH_TOKEN}"]
+then
+  npm publish --access public
+fi
+
 if [ ! -z "$user_email" ]
 then
   git config --global user.email "$user_email"
