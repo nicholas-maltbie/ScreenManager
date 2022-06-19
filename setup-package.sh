@@ -1,5 +1,8 @@
 current_sha=$(git rev-parse --verify HEAD)
 previous_githooks=$(git config core.hooksPath)
+
+export_path="./Packages/com.nickmaltbie.screenmanager"
+
 # Checkout specific tag if one is provided
 if [ ! -z "$1" ]
 then
@@ -29,13 +32,13 @@ git config --global user.name "github-actions[bot]"
 git lfs install
 
 # Sets up unity package samples
-git mv ./Assets/Samples ./Packages/com.nickmaltbie.screenmanager/Samples~
+git mv ./Assets/Samples "$export_path/Samples~"
 
-git commit -m "Moved ./Assets/Samples to ./Packages/com.nickmaltbie.screenmanager/Samples~"
+git commit -m "Moved ./Assets/Samples to $export_path/Samples~"
 
 # Reset all other changes
 git rm -rf .
-git checkout HEAD -- ./Packages/com.nickmaltbie.screenmanager
+git checkout HEAD -- "$export_path"
 
 # Keep .gitattributes for lfs files
 git checkout HEAD -- .gitattributes
@@ -43,7 +46,7 @@ git checkout HEAD -- .gitattributes
 git commit -m "Filtered for only package files"
 
 # Move files from _keep to root folder
-git mv ./Packages/com.nickmaltbie.screenmanager/* .
+git mv "$export_path/*" .
 
 git commit -m "Setup files for release"
 
