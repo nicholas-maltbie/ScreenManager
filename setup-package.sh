@@ -1,4 +1,4 @@
-$current_sha = git rev-parse --verify HEAD
+$current_sha=$(git rev-parse --verify HEAD)
 
 # Checkout specific tag if one is provided
 if [ ! -z "$1" ]
