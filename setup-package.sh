@@ -1,12 +1,15 @@
+$current_sha = git rev-parse --verify HEAD
+
 # Checkout specific tag if one is provided
 if [ ! -z "$1" ]
 then
   echo "Attempting to make release for tag $1"
   if git rev-parse "$1" >/dev/null 2>&1; then
     echo "Found tag $1, checking out changes"
-    git checkout $1
+    git checkout "$1"
   else
     echo "Tag $1 does not exist, aborting changes"
+    exit 1
   fi
 fi
 
@@ -51,5 +54,7 @@ git clean -xdf .
 if [ ! -z "$1" ]
 then
   # Push changes to original repo
-  git push --set-upstream git push --set-upstream origin/release/$1
+  git branch -m "release/$1"
+  git push --set-upstream origin "release/$1"
+  git checkout "$current_sha"
 fi
