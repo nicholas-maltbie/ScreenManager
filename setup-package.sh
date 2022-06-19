@@ -10,7 +10,7 @@ git checkout -b temp-branch
 
 # Sets up unity package samples
 git mv ./Assets/Samples ./Packages/com.nickmaltbie.screenmanager/Samples~
-git mv ./Packages/com.nickmaltbie.screenmanager/ _keep/
+git mv ./Packages/com.nickmaltbie.screenmanager/* _keep/
 
 git lfs install
 
