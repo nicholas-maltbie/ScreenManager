@@ -51,6 +51,7 @@ git commit -m "Setup files for release"
 if [ ! -z "$1" ]
 then
   # Push changes to original repo
+  git branch -D "release/$1"
   git branch -m "release/$1"
   git push --set-upstream origin "release/$1" --force
 
