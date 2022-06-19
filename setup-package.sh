@@ -1,8 +1,12 @@
+repo_path=$(dirname "$0")
+
+cd $repo_path
+
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 current_sha=$(git rev-parse --verify HEAD)
 previous_githooks=$(git config core.hooksPath)
 
-export_path="./Packages/com.nickmaltbie.screenmanager"
+export_path="$repo_path/Packages/com.nickmaltbie.screenmanager"
 
 # Checkout specific tag if one is provided
 if [ ! -z "$1" ]
@@ -36,9 +40,9 @@ git config --global user.name "github-actions[bot]"
 git lfs install
 
 # Sets up unity package samples
-git mv ./Assets/Samples "$export_path/Samples~"
+git mv $repo_path/Assets/Samples "$export_path/Samples~"
 
-git commit -m "Moved ./Assets/Samples to $export_path/Samples~"
+git commit -m "Moved $repo_path/Assets/Samples to $export_path/Samples~"
 
 # Reset all other changes
 git rm -rf .
