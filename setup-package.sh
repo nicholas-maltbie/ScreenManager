@@ -71,7 +71,7 @@ then
 fi
 
 # If user provided a npm token, publish changes
-if [ ! -z "$NODE_AUTH_TOKEN"]
+if [ ! -z "$NODE_AUTH_TOKEN" ]
 then
   echo "Attempting to publish pacakge to node"
   npm publish --access public
