@@ -52,7 +52,7 @@ if [ ! -z "$1" ]
 then
   # Push changes to original repo
   git branch -m "release/$1"
-  git push --set-upstream origin "release/$1"
+  git push --set-upstream origin "release/$1" -force
 
   # Cleanup any files in the repo we don't care about
   git checkout .
