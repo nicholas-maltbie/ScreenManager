@@ -27,6 +27,9 @@ fi
 git branch -D temp-branch
 git checkout -b temp-branch
 
+user_email=$(git config --global user.email)
+user_name=$(git config --global user.name)
+
 git config --global user.email "github-actions[bot]@users.noreply.github.com"
 git config --global user.name "github-actions[bot]"
 git lfs install
@@ -62,3 +65,6 @@ then
   # Cleanup any files in the repo we don't care about
   git checkout . && git clean -xdf . && git checkout "$current_sha"
 fi
+
+git config --global user.email "$user_email"
+git config --global user.name "$user_name"
