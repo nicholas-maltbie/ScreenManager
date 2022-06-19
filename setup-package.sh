@@ -31,3 +31,6 @@ git commit -m "Filtered for only package files"
 git mv ./Packages/com.nickmaltbie.screenmanager/* .
 
 git commit -m "Setup files for release"
+
+# Cleanup any files in the repo we don't care about
+git clean -xdf .
