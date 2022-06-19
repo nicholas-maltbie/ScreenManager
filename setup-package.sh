@@ -36,7 +36,6 @@ git checkout -b temp-branch
 
 # Sets up unity package samples
 git mv ./Assets/Samples ./Packages/com.nickmaltbie.screenmanager/Samples~
-git mv ./Packages/com.nickmaltbie.screenmanager/* _keep/
 
 git lfs install
 
@@ -47,9 +46,11 @@ git commit -m "Moved ./Assets/Samples to ./Packages/com.nickmaltbie.screenmanage
 
 # Reset all other changes
 git rm -rf .
-git checkout HEAD -- _keep
+git checkout HEAD -- ./Packages/com.nickmaltbie.screenmanager
+
+git commit -m "Filtered for only package files"
 
 # Move files from _keep to root folder
-git mv _keep/* .
+git mv ./Packages/com.nickmaltbie.screenmanager/* .
 
 git commit -m "Setup files for release"
