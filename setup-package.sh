@@ -22,6 +22,9 @@ git commit -m "Moved ./Assets/Samples to ./Packages/com.nickmaltbie.screenmanage
 git rm -rf .
 git checkout HEAD -- ./Packages/com.nickmaltbie.screenmanager
 
+# Keep .gitattributes for lfs files
+git checkout HEAD -- .gitattributes
+
 git commit -m "Filtered for only package files"
 
 # Move files from _keep to root folder
