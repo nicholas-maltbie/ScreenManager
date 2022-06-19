@@ -8,7 +8,7 @@ then
     echo "Found tag $1, checking out changes"
     git checkout "$1"
   else
-    echo "Tag $1 does not exist, aborting changes"
+    echo "Tag $1 does not exist, aborting changes" 1>&2
     exit 1
   fi
 fi
