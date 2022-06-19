@@ -66,5 +66,12 @@ then
   git checkout . && git clean -xdf . && git checkout "$current_sha"
 fi
 
-git config --global user.email "$user_email"
-git config --global user.name "$user_name"
+if [ ! -z "$user_email" ]
+then
+  git config --global user.email "$user_email"
+fi
+
+if [ ! -z "$user_name" ]
+then
+  git config --global user.name "$user_name"
+fi
