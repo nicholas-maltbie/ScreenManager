@@ -1,3 +1,4 @@
+current_branch=$(git rev-parse --abbrev-ref HEAD)
 current_sha=$(git rev-parse --verify HEAD)
 previous_githooks=$(git config core.hooksPath)
 
@@ -66,7 +67,7 @@ then
 
   git config core.hooksPath "$previous_githooks"
   # Cleanup any files in the repo we don't care about
-  git checkout . && git clean -xdf . && git checkout "$current_sha"
+  git checkout . && git clean -xdf . && git checkout "$current_sha" && git checkout "$current_branch"
 fi
 
 if [ ! -z "$user_email" ]
