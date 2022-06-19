@@ -53,6 +53,9 @@ git mv "$export_path/*" .
 
 git commit -m "Setup files for release"
 
+# Reset some changes
+git checkout . && git clean -xdf .
+
 # Push changes to repo if tag was provided
 if [ ! -z "$1" ]
 then
