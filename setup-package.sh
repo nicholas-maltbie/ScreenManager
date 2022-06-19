@@ -4,6 +4,7 @@ then
   echo "Attempting to make release for tag $1"
   if git rev-parse "$1" >/dev/null 2>&1; then
     echo "Found tag $1, checking out changes"
+    git checkout $1
   else
     echo "Tag $1 does not exist, aborting changes"
   fi
