@@ -1,3 +1,6 @@
+# Move to temporary branch
+git checkout temp-branch
+
 # Sets up unity package samples
 git mv ./Assets/Samples ./Packages/com.nickmaltbie.screenmanager/Samples~
 git mv ./Packages/com.nickmaltbie.screenmanager _keep
@@ -9,7 +12,12 @@ git config --global user.name "github-actions[bot]"
 
 git commit -m "Moved ./Assets/Samples to ./Packages/com.nickmaltbie.screenmanager/Samples~"
 
-# Cleanup any files not part of the package
-git subtree split --prefix _keep --rejoin --branch cleaned-branch
+# Reset all other changes
+git rm -rf .
+git checkout HEAD -- _keep
 
-git checkout cleaned-branch
+# Move files from _keep to root folder
+git mv _keep/* .
+git rm -rf _keep
+
+git commit -m "Setup files for release"
