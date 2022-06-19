@@ -1,5 +1,11 @@
+# Check if there are changes
+if [[ `git status --porcelain` ]]; then
+  echo "Will not setup package if branch has changes" 1>&2
+  exit 1
+fi
+
 # Move to temporary branch
-git checkout temp-branch
+git checkout -b temp-branch
 
 # Sets up unity package samples
 git mv ./Assets/Samples ./Packages/com.nickmaltbie.screenmanager/Samples~
