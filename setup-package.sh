@@ -10,6 +10,6 @@ git config --global user.name "github-actions[bot]"
 git commit -m "Moved ./Assets/Samples to ./Packages/com.nickmaltbie.screenmanager/Samples~"
 
 # Cleanup any files not part of the package
-git subtree split --prefix _keep --branch cleaned-branch
+git subtree split --prefix _keep --rejoin --branch cleaned-branch
 
 git checkout cleaned-branch
