@@ -8,13 +8,13 @@ fi
 git branch -D temp-branch
 git checkout -b temp-branch
 
-# Sets up unity package samples
-git mv ./Assets/Samples ./Packages/com.nickmaltbie.screenmanager/Samples~
-
 git lfs install
 
 git config --global user.email "github-actions[bot]@users.noreply.github.com"
 git config --global user.name "github-actions[bot]"
+
+# Sets up unity package samples
+git mv ./Assets/Samples ./Packages/com.nickmaltbie.screenmanager/Samples~
 
 git commit -m "Moved ./Assets/Samples to ./Packages/com.nickmaltbie.screenmanager/Samples~"
 
