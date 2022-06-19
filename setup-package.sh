@@ -5,6 +5,7 @@ if [[ `git status --porcelain` ]]; then
 fi
 
 # Move to temporary branch
+git branch -D temp-branch
 git checkout -b temp-branch
 
 # Sets up unity package samples
