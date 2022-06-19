@@ -23,8 +23,6 @@ fi
 git branch -D temp-branch
 git checkout -b temp-branch
 
-git lfs install
-
 git config --global user.email "github-actions[bot]@users.noreply.github.com"
 git config --global user.name "github-actions[bot]"
 
@@ -56,5 +54,5 @@ then
   git push --set-upstream origin "release/$1" --force
 
   # Cleanup any files in the repo we don't care about
-  git checkout . && git clean -xdf . && rm -rf .githooks && git checkout "$current_sha"
+  git checkout . && git clean -xdf . && git checkout "$current_sha"
 fi
