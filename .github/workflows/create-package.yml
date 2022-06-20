@@ -24,7 +24,7 @@ jobs:
       - name: Publish Package
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NSM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Get tag name
         uses: olegtarasov/get-tag@v2.1.1
