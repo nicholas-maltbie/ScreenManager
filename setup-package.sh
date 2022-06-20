@@ -44,9 +44,8 @@ fi
 git lfs install
 
 # Sets up unity package samples
-git mv "./Assets/Samples" "$export_path/Samples~"
-
-git commit -m "Moved ./Assets/Samples/ to $export_path/Samples~"
+git mv "./Assets/Samples" "$export_path/Samples"
+git commit -m "Moved ./Assets/Samples/ to $export_path/Samples"
 
 # Reset all other changes
 git rm -rf .
@@ -61,6 +60,9 @@ git commit -m "Filtered for only package files"
 git mv $export_path/* .
 
 git commit -m "Setup files for release"
+
+git mv "Samples" "Samples~"
+git commit -m "Renamed Samples to Samples~"
 
 # Reset some changes
 git checkout . && git clean -xdf .
