@@ -20,6 +20,9 @@ jobs:
 
       - name: Setup Package
         run: sh ./setup-package.sh
+      
+      - name: Publish Package
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NSM_TOKEN }}
 
