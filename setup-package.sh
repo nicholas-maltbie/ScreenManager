@@ -36,9 +36,9 @@ git config --global user.name "github-actions[bot]"
 git lfs install
 
 # Sets up unity package samples
-git mv "./Assets/Samples" "$export_path/Samples~"
+git mv "./Assets/Samples/" "$export_path/Samples~"
 
-git commit -m "Moved ./Assets/Samples to $export_path/Samples~"
+git commit -m "Moved ./Assets/Samples/ to $export_path/Samples~"
 
 # Reset all other changes
 git rm -rf .
@@ -50,7 +50,7 @@ git checkout HEAD -- .gitattributes
 git commit -m "Filtered for only package files"
 
 # Move files from _keep to root folder
-git mv $export_path/* .
+git mv "$export_path/*" .
 
 git commit -m "Setup files for release"
 
@@ -67,7 +67,13 @@ then
 
   git config core.hooksPath "$previous_githooks"
   # Cleanup any files in the repo we don't care about
-  git checkout . && git clean -xdf . && git checkout "$current_sha" && git checkout "$current_branch"
+  git checkout . && git clean -xdf .
+  if [ "$current_branch" -ne "HEAD" ]
+  then
+    git checkout "$current_branch"
+  else
+    git checkout "$current_sha"
+  fi
 fi
 
 # If user provided a npm token, publish changes
