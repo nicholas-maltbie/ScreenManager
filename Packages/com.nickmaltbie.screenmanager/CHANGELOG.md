@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 * Small changes to fix lfs assets in `release/version` branches
 * Added ability to create `release/version` for previous branches
+* Added scoped registry install instructions for project.
 
 ## [3.0.1] - 2022-06-13
 
