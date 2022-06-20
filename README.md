@@ -49,6 +49,39 @@ within the project.
 For more details about installing a project via git, see unity's documentation
 on [Installing form a Git URL](https://docs.unity3d.com/Manual/upm-ui-giturl.html#:~:text=%20Select%20Add%20package%20from%20git%20URL%20from,repository%20directly%20rather%20than%20from%20a%20package%20registry.).
 
+### Scoped Registry Install
+
+If you wish to install the project via a
+[Scoped Registry](https://docs.unity3d.com/Manual/upm-scoped.html)
+and npm, you can add a scoped registry to your project from all of the
+`com.nickmaltbie` packages like this:
+
+```json
+"scopedRegistries": [
+  {
+    "name": "nickmaltbie",
+    "url": "https://registry.npmjs.org",
+    "scopes": [
+      "com.nickmaltbie"
+    ]
+  }
+]
+```
+
+Then, if you want to reference a version of the project, you simply
+need to include the dependency with a version string and the unity package
+manager will be able to download it from the registry at
+`https://registry.npmjs.org`
+
+```json
+"dependencies": {
+  "com.nickmaltbie.screenmanager": "3.0.0",
+  "com.unity.inputsystem": "1.0.2",
+  "com.unity.textmeshpro": "3.0.6"
+  // ... other dependencies
+}
+```
+
 ## Documentation
 
 Documentation on the project and scripting API is found at
