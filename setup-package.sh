@@ -58,7 +58,7 @@ git checkout HEAD -- .gitattributes
 git commit -m "Filtered for only package files"
 
 # Move files from _keep to root folder
-git mv "$export_path/*" .
+git mv $export_path/* .
 
 git commit -m "Setup files for release"
 
