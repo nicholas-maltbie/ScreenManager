@@ -31,8 +31,16 @@ git checkout -b temp-branch
 user_email=$(git config --global user.email)
 user_name=$(git config --global user.name)
 
-git config --global user.email "github-actions[bot]@users.noreply.github.com"
-git config --global user.name "github-actions[bot]"
+if [ ! -z "$user_email" ]
+then
+  git config --global user.email "github-actions[bot]@users.noreply.github.com"
+fi
+
+if [ ! -z "$user_name" ]
+then
+  git config --global user.name "github-actions[bot]"
+fi
+
 git lfs install
 
 # Sets up unity package samples
@@ -81,14 +89,4 @@ if [ ! -z "$NPM_TOKEN" ]
 then
   echo "Attempting to publish pacakge to node"
   npm publish --access public
-fi
-
-if [ ! -z "$user_email" ]
-then
-  git config --global user.email "$user_email"
-fi
-
-if [ ! -z "$user_name" ]
-then
-  git config --global user.name "$user_name"
 fi
