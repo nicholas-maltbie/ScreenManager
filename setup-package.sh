@@ -31,12 +31,12 @@ git checkout -b temp-branch
 user_email=$(git config --global user.email)
 user_name=$(git config --global user.name)
 
-if [ ! -z "$user_email" ]
+if [ -z "$user_email" ]
 then
   git config --global user.email "github-actions[bot]@users.noreply.github.com"
 fi
 
-if [ ! -z "$user_name" ]
+if [ -z "$user_name" ]
 then
   git config --global user.name "github-actions[bot]"
 fi
