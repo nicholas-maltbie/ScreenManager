@@ -1,7 +1,7 @@
 {
   "name": "com.nickmaltbie.screenmanager",
   "displayName": "Screen Manager",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "unity": "2021.1",
   "unityRelease": "19f1",
   "description": "Screen Manager to manage and preset UI screens to show to the player.",
@@ -26,8 +26,9 @@
     "com.unity.inputsystem": "1.0.2",
     "com.unity.textmeshpro": "3.0.6"
   },
-  "testables": [
-    "com.unity.inputsystem"
-  ],
-  "license": "MIT"
+  "testables": ["com.unity.inputsystem"],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nicholas-maltbie/ScreenManager.git"
+  }
 }
