@@ -46,24 +46,3 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  publish-github-packages:
-    runs-on: ubuntu-latest
-    needs: create-package
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: release/${{ steps.tagName.outputs.tag }}
-      - uses: ./.github/actions/git-lfs-cache
-
-      # Publish to 
-      - name: Use Node.js 14
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
-          registry-url: https://npm.pkg.github.com/
-
-      - name: Publish Package to GitHub
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
