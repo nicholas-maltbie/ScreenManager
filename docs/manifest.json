@@ -1,0 +1,921 @@
+{
+  "sitemap": {
+    "fileOptions": {
+      "api/*": {
+        "baseUrl": "https://nickmaltbie.com/ScreenManager/docs/",
+        "changefreq": "daily"
+      }
+    },
+    "baseUrl": "https://nickmaltbie.com/ScreenManager/docs/",
+    "changefreq": "weekly"
+  },
+  "homepages": [],
+  "source_base_path": "D:/a/ScreenManager/ScreenManager/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "LICENSE.txt",
+      "output": {
+        "resource": {
+          "relative_path": "LICENSE.txt"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.ChangeQualityActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.ChangeQualityActions.html",
+          "hash": "+BLaJ1e/0Db5k1EQjTZQdh2pEYAy1t3PtLvKCS3uPL0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.ChangeScreenActions.ScreenSettingsGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.ChangeScreenActions.ScreenSettingsGroup.html",
+          "hash": "ZncCDx6TDfqKmuTJhiGBWfOI42LrRCHgY8/uSqr9LCk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.ChangeScreenActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.ChangeScreenActions.html",
+          "hash": "+44VuBmgbsUUz5q7X9x3udRSdPhJV5TccjshT8r7cBY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.IBindingControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.IBindingControl.html",
+          "hash": "HpEtCA7TX5cT6sBWQaItPS7QAbYRpwqeSlt4LtSiUf8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.PerformActionOnButtonPress.ActionEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.PerformActionOnButtonPress.ActionEvent.html",
+          "hash": "n2sfeLlOSwtz1no3iDf+eDFlUbf+DepdOMwObJn6pX4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.PerformActionOnButtonPress.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.PerformActionOnButtonPress.html",
+          "hash": "drGIA/+nccisSqx7fJVVdVeypHnI7oXCWZiIt0n5O7E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.QuitGameAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.QuitGameAction.html",
+          "hash": "q91+QdX/p7p1GaCd6XyGxw3m1wfm7VTgF0gIMy3MMMY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.RebindCompositeInput.RebindingGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.RebindCompositeInput.RebindingGroup.html",
+          "hash": "LpWtx6wJMGD7xJibWSvqNPiiVBzjCNdu1JaDmyZO5hE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.RebindCompositeInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.RebindCompositeInput.html",
+          "hash": "xLH5oxdnS/ncYJbiqA6q6d0RVKJjf29fqqwuFewufzY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.RebindInputButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.RebindInputButton.html",
+          "hash": "cM6VAMdcWsoQN6MJAvRPii16JeatKxQynyZGTOztr3k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.ResetBindingsButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.ResetBindingsButton.html",
+          "hash": "goYDvSwrzGxjwELebjKuhIu9NDNC8YYQvsIb2h6TiKE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.ScreenLoading.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.ScreenLoading.html",
+          "hash": "1UMi9UluaA63RZHHzy5wMiw0vMSz2qhq/QLbaYAl2jQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.SoundAdjustActions.AudioMixerSettingsGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.SoundAdjustActions.AudioMixerSettingsGroup.html",
+          "hash": "hhDs0Gu+NcHmXXCjVDSwS9//xNMQ2wQF1l7wjfyAPS8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.SoundAdjustActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.SoundAdjustActions.html",
+          "hash": "Vyd033npI6DdTWxjpqoFkTBuUqMtU6Q7dKqHM4LIyUU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.ToggleFullScreenAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.ToggleFullScreenAction.html",
+          "hash": "eYREOoWA1SxLyvPjjDTszghg1t9hWws2VYPgOB33YrE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Actions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Actions.html",
+          "hash": "thXolkU47Yalq3u03zs/0dtCrHvgITGkrrDhvbqXy2M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.DisplayControls.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.DisplayControls.html",
+          "hash": "e9LTcxZyEsIjL29gC1HIdoJvmet/xBEVjULF0DVHQNY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.ChangeAudioLevelTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.ChangeAudioLevelTests.html",
+          "hash": "Yz4+RnN8bN70DpqC0cVJlklqPxNTy+USQ0DPzQ8DmrU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.ChangeQualityActionsTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.ChangeQualityActionsTests.html",
+          "hash": "mD85JnCFqiqz36ujXH5rdeuX+6SoWniTkAz+g5cuA/4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.ChangeScreenActionsTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.ChangeScreenActionsTests.html",
+          "hash": "kzGxFuQF7zZoaIRM9b3uDqx6r52KZSnqtmtkREaYTmE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.MenuControllerTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.MenuControllerTests.html",
+          "hash": "fvHYlZtAW0rP8v/HUCSkZ2AwS9JkH0QFfSJVyPu1k44="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.PerformActionOnButtonPressTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.PerformActionOnButtonPressTests.html",
+          "hash": "A8mS9a0cBv9xMJ2kFgtZiw5C1D+eZSRalhxXYR6n8A0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.RebindCompositeInputButtonTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.RebindCompositeInputButtonTests.html",
+          "hash": "jziRoZ4YWuuTAOYTg4Sd6WETLjRr4bg9xfkbPce7mOQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.RebindInputButtonTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.RebindInputButtonTests.html",
+          "hash": "WixO3edQdjMFZ/TI917VxOhXyvSVYu3gu9TIAB58hOY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.ResetBindingButtonTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.ResetBindingButtonTests.html",
+          "hash": "HrBuUxpxlYgbpEIaCHPltkz9/8ZbK/fA33jESPfYxKo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.UIActionTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.UIActionTests.html",
+          "hash": "mD9EVnM7uhH1dcbE+ch90l1T8oIOHsbkUTYLQErD4ec="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Actions.html",
+          "hash": "OE020Q9p9DogYpz6olt0FRkrABvlA9IivFehkqd9ngc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.DisplayControlsTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.DisplayControlsTests.html",
+          "hash": "4BHcJ67x5EkvN4nMd9XAYBlzOJ9QKQv8P1MGwp5nyMg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Events.LoadScreenOnEnableTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Events.LoadScreenOnEnableTests.html",
+          "hash": "1UVczZcV81EtZ6q5/5YdNkjEkXgoZLQYHl3KnPDUVvk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Events.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Events.html",
+          "hash": "iohWCpMukzm1KbKO2jiHDKjtsiWVG3MXGpBlTAvfjAY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.GameScreenTests.TestScreenComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.GameScreenTests.TestScreenComponent.html",
+          "hash": "C3UyJPm3IDG5afLH8VZPbknJ8xQuA6BJNvNhuhiD/M0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.GameScreenTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.GameScreenTests.html",
+          "hash": "VNIJm9HTz2N7JxdYUzc2ceyHZR1qmqWT2SGB3nepfYU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.HideOnPlatformTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.HideOnPlatformTests.html",
+          "hash": "LUTgp2JmGVcPAoji5eUcM5QYrFvn2+PJI35+uJ+LnyI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.PopulateVersionTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.PopulateVersionTests.html",
+          "hash": "busBMp2kTga+1AZpIsrnpp6soqHIOmq9eS33tyGjycc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.ShowOnPlatformTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.ShowOnPlatformTests.html",
+          "hash": "njrQELzwS6qSczOK6HOmCF+tK7lALkreqmCLNQWBll0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.TabStripTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.TabStripTests.html",
+          "hash": "LQxrT3qrJx1F97WsPU/gxTzJrug0L3s6RYaUy8gRAeg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.TestScreenComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.TestScreenComponent.html",
+          "hash": "jQqcu5/AY0aTMOQXAb8tkQKQ1NQTrN2TUsHJ/PeNWVI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Text.TMProUGUIHyperlinksTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Text.TMProUGUIHyperlinksTests.html",
+          "hash": "SStus3MSqd1aRB9Ei7SwhX8jQiXS0h5tuiSfPIjF8pc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Text.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.Text.html",
+          "hash": "VfNKHMLCaHRZRE76hlqFEugaO+ItvjyCBoU3X0TIfLY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.UIManagerTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.UIManagerTests.html",
+          "hash": "A3m/NLn0AMzEhdXd0TwmQY2LOsui/fwFoUJ0ktgqqhI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Editor.Tests.html",
+          "hash": "Qd9axvtRlIWiT/EFJftqTJjHk8Bccat99y2nARgHjB8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Events.CursorStateOnMenuLoad.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Events.CursorStateOnMenuLoad.html",
+          "hash": "LgMMYCM8Vh3b7QCdGbY+zMbC7sEOq2xB3HT1rGByDiw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Events.LoadScreenOnEnable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Events.LoadScreenOnEnable.html",
+          "hash": "gNidQnJOVjfT9HesgKpNQMG9uE0kgtHSOxTvG+w3leQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Events.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Events.html",
+          "hash": "ij/LipPJTyk63Q0IFwPB1Xw5yyNEq6RmiSmyc6Lz/A0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.GameScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.GameScreen.html",
+          "hash": "30MByhykxk8YE7t1RCx3oc0W7pEtQgN+IbjKCwqPt1g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.HideOnPlatform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.HideOnPlatform.html",
+          "hash": "PFOhzZ2u9I/S4z2Us138AT5h+IS5bnsE2hYjmycbgj4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.IScreenComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.IScreenComponent.html",
+          "hash": "TvrGMmcymJX66QEyVOoJ2XMQvkMGkjGCuhF/WoqXzkQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.MenuController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.MenuController.html",
+          "hash": "C61EETzrjRFkXXKfPjnrMHgaE5v9F6L30jHSVJZvb+U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.PopulateVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.PopulateVersion.html",
+          "hash": "mJJWj4qEluL9dzVcxdVcxVJwsHoi9jiG/QN2iatgZYk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.RequestScreenChangeEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.RequestScreenChangeEventArgs.html",
+          "hash": "Bvdh8ggx7VCp3i4lXUFzLU+SngMF3MtA/h4AY5Gr3W8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.ScreenChangeEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.ScreenChangeEventArgs.html",
+          "hash": "V8D3OlPno3kKtZjtxlxlgsQnMxGE2iO28KC2tPoHhVg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.ShowOnPlatform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.ShowOnPlatform.html",
+          "hash": "4XI0QqdQPe/rEwGmzB9oKlrxeXkjFsOdL3FiaTKFR3Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.TabPair.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.TabPair.html",
+          "hash": "+I1K9IBAMRUT1ODIM1C7nBsNL52LGgKGOq4brf91Qp4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.TabStrip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.TabStrip.html",
+          "hash": "MQM2rVxG06m1dZDawXIR6Cw3coC2r4ragouZNf99MEc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.TestCommon.ScreenManagerTestBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.TestCommon.ScreenManagerTestBase.html",
+          "hash": "BOOx2t7QKAAGPnhYRCwpe4VezIqhylEyfnfQtQCwW6Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.TestCommon.ScreenManagerTestUtils.BoundRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.TestCommon.ScreenManagerTestUtils.BoundRange.html",
+          "hash": "lWeY+huLSnPFFkNYyzxBxbhk7Sca3ODPRbuhi5tEQC4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.TestCommon.ScreenManagerTestUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.TestCommon.ScreenManagerTestUtils.html",
+          "hash": "QviDa3VpxQm5YY0KmNa7Lxml+I8k4Ie7+I3YhhIXoYA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.TestCommon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.TestCommon.html",
+          "hash": "o7p70XPtIRQBLEQrMi45yG7ZdkBoRi7we73lRYGmsB0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Text.TMProUGUIHyperlinks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Text.TMProUGUIHyperlinks.html",
+          "hash": "zwxbLwWGtmy2Tnr5J+xK2WXx0aCX2GxZ0oQajeOJ4OE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.Text.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.Text.html",
+          "hash": "4DvGll/abpWaCABLOTCNjlloIohRIH0XgLuYEXpP//M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.UIManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.UIManager.html",
+          "hash": "kv7KKkhdVbnGX+QHECwB2SUkXe/l5w0QqlOugq6KdUM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/nickmaltbie.ScreenManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/nickmaltbie.ScreenManager.html",
+          "hash": "v/O6TmIt8kYpaJ6b5rMiU0ZRlWJywyU0t3AlbsXbCu4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "OSYa6Ef3BUqAqQ//yOauPhv0V5CHXwpVc2gLkkOObpI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "changelog/CHANGELOG.md",
+      "output": {
+        ".html": {
+          "relative_path": "changelog/CHANGELOG.html",
+          "hash": "MN2c5vgv8jWct2rLD+cCePdiEP7++D1eV6u8A75UH0c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "changelog/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "changelog/toc.html",
+          "hash": "1q1fO7/YyPEGJ89UlRVsP2/QXB8oQ3/9CvSsb1tfrWg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "vg6QwL1n0GsuSn/SF7mXUX24czrtjal/H1IPEm2k7N0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/introduction.html",
+          "hash": "bEUwdMqACE/Gj8PtyuV/ZBmgekzG0JWIioLrQiFoqYQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "manual/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "manual/toc.html",
+          "hash": "m2S1Yi8n1lPXDZKT5Jv0VY0xWYHT7GRxoxwMIyyIMSI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "pjQ/ONaNDOLEoXwY3/FKlJcFBBBQJ+DkiVOHkdhORqk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 62,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

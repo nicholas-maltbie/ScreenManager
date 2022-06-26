@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ScreenManager | ScreenManager Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ScreenManager | ScreenManager Documentation ">
+    <meta name="generator" content="docfx 2.59.2.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="screenmanager">ScreenManager</h1>
+
+<p>ScreenManager is an open source project hosted at
+<a href="https://github.com/nicholas-maltbie/ScreenManager">https://github.com/nicholas-maltbie/ScreenManager</a></p>
+<p>This is an open source project licensed under a <a href="LICENSE.txt">MIT License</a>.
+Feel free to use a build of the project for your own work. If you see an error
+in the project or have any suggestions, write an issue or make a pull request,
+I&#39;ll happy include any suggestions or ideas into the project.</p>
+<p>You can see a demo of the project running here:
+<a href="https://nickmaltbie.com/ScreenManager/">https://nickmaltbie.com/ScreenManager/</a>.
+The project hosted on the website is up to date with the most recent
+version on the <code>main</code> branch of this github repo
+and is automatically deployed with each update to the codebase.</p>
+<h2 id="installation">Installation</h2>
+<p>Install the latest version of the project by importing a project via git
+at this URL:</p>
+<pre><code class="lang-text">https://github.com/nicholas-maltbie/ScreenManager.git#release/latest
+</code></pre><p>( Or use this path to import without samples )</p>
+<pre><code class="lang-text">https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/
+</code></pre><p>If you want to reference a specific tag of the project such as version <code>v3.0.4</code>,
+add a <code>#release/v3.0.4</code> to the end of the git URL. An example of importing <code>v3.0.4</code>
+would look like this:
+<code>https://github.com/nicholas-maltbie/ScreenManager.git#release/v3.0.4</code></p>
+<p>For a full list of all tags, check the <a href="https://github.com/nicholas-maltbie/ScreenManager/tags">ScreenManager Tags</a>
+list on github. I will usually associated a tag with each release of the project.</p>
+<p>If you do not include a tag, this means that your project will update whenever
+you reimport from main. This may cause some errors or problems due to
+experimental or breaking changes in the project.</p>
+<p>You can also import the project via a tarball if you download the source
+code and extract it on your local machine. Make sure to import
+via the package manifest defined at <code>Packages\com.nickmaltbie.screenmanager\package.json</code>
+within the project.</p>
+<p>For more details about installing a project via git, see unity&#39;s documentation
+on <a href="https://docs.unity3d.com/Manual/upm-ui-giturl.html#:~:text=%20Select%20Add%20package%20from%20git%20URL%20from,repository%20directly%20rather%20than%20from%20a%20package%20registry.">Installing form a Git URL</a>.</p>
+<h3 id="scoped-registry-install">Scoped Registry Install</h3>
+<p>If you wish to install the project via a
+<a href="https://docs.unity3d.com/Manual/upm-scoped.html">Scoped Registry</a>
+and npm, you can add a scoped registry to your project from all of the
+<code>com.nickmaltbie</code> packages like this:</p>
+<pre><code class="lang-json">&quot;scopedRegistries&quot;: [
+  {
+    &quot;name&quot;: &quot;nickmaltbie&quot;,
+    &quot;url&quot;: &quot;https://registry.npmjs.org&quot;,
+    &quot;scopes&quot;: [
+      &quot;com.nickmaltbie&quot;
+    ]
+  }
+]
+</code></pre><p>Then, if you want to reference a version of the project, you simply
+need to include the dependency with a version string and the unity package
+manager will be able to download it from the registry at
+<code>https://registry.npmjs.org</code></p>
+<pre><code class="lang-json">&quot;dependencies&quot;: {
+  &quot;com.nickmaltbie.screenmanager&quot;: &quot;3.0.0&quot;,
+  &quot;com.unity.inputsystem&quot;: &quot;1.0.2&quot;,
+  &quot;com.unity.textmeshpro&quot;: &quot;3.0.6&quot;
+  // ... other dependencies
+}
+</code></pre><h2 id="documentation">Documentation</h2>
+<p>Documentation on the project and scripting API is found at
+<a href="https://nickmaltbie.com/ScreenManager/docs/">https://nickmaltbie.com/ScreenManager/docs/</a>
+for the latest version of the codebase.</p>
+<p>To view the documentation from a local build of the project install
+<a href="https://dotnet.github.io/docfx/">DocFX</a>, use the
+following command from the root of the repo.</p>
+<pre><code class="lang-bash">Documentation/build.sh
+</code></pre><p>(Or this for windows)</p>
+<pre><code class="lang-cmd">.\Documentation\build.cmd
+</code></pre><p>The documentation for the project is stored in the folder <code>/Documentation</code>
+and can be modified and changed to update with the project.</p>
+<p><em>This documentation project is inspired by the project by Norman Erwan&#39;s
+<a href="https://github.com/NormandErwan/DocFxForUnity">DocFxForUnity</a></em></p>
+<h2 id="development">Development</h2>
+<p>If you want to help with the project, feel free to make some
+changes and submit a PR to the repo.</p>
+<p>This project is developed using Unity Release <a href="https://unity3d.com/unity/whats-new/2021.1.19">2021.1.19f1</a>.
+Install this version of Unity from Unity Hub using this link:
+<a href="unityhub://2021.1.19f1/d0d1bb862f9d">unityhub://2021.1.19f1/d0d1bb862f9d</a>.</p>
+<h3 id="git-lfs-setup">Git LFS Setup</h3>
+<p>Ensure that you also have git lfs installed. It should be setup to auto-track
+certain types of files as determined in the <code>.gitattributes</code> file. If the
+command to install git-lfs <code>git lfs install</code> is giving you trouble, try
+looking into the <a href="https://git-lfs.github.com/">installation guide</a>.</p>
+<p>Once git lfs is installed, from in the repo, run the following command to pull
+objects for development.</p>
+<pre><code class="lang-bash">git lfs pull
+</code></pre><h3 id="githooks-setup">Githooks Setup</h3>
+<p>When working with the project, make sure to setup the <code>.githooks</code> if
+you want to edit the code in the project. In order to do this, use the
+following command to reconfigure the <code>core.hooksPath</code> for your repository</p>
+<pre><code class="lang-bash">git config --local core.hooksPath .githooks
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nicholas-maltbie/ScreenManager/blob/main/Documentation/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            ScreenManager Documentation
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>
