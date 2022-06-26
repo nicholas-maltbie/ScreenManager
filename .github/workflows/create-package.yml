@@ -20,11 +20,16 @@ jobs:
 
       # Deploy build to release branch
       - name: Push package
+        if: "${{ steps.tagName.outputs.tag != '' }}"
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: release/${{ steps.tagName.outputs.tag }}
           force: true
+
+      - name: Git lfs Pull
+        run: git lfs pull
+        shell: bash
 
       # Publish to 
       - name: Use Node.js 14
@@ -34,7 +39,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       
       - name: Publish Package to NpmJS
-        run: npm publish
+        run: npm publish --dry-run
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       

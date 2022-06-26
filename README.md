@@ -29,10 +29,10 @@ https://github.com/nicholas-maltbie/ScreenManager.git#release/latest
 https://github.com/nicholas-maltbie/ScreenManager.git?path=/Packages/com.nickmaltbie.screenmanager/
 ```
 
-If you want to reference a specific tag of the project such as version `v3.0.3`,
-add a `#release/v3.0.3` to the end of the git URL. An example of importing `v3.0.3`
+If you want to reference a specific tag of the project such as version `v3.0.4`,
+add a `#release/v3.0.4` to the end of the git URL. An example of importing `v3.0.4`
 would look like this:
-`https://github.com/nicholas-maltbie/ScreenManager.git#release/v3.0.3`
+`https://github.com/nicholas-maltbie/ScreenManager.git#release/v3.0.4`
 
 For a full list of all tags, check the [ScreenManager Tags](https://github.com/nicholas-maltbie/ScreenManager/tags)
 list on github. I will usually associated a tag with each release of the project.
