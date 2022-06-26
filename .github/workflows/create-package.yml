@@ -1,6 +1,7 @@
 name: Create Package
 
 on:
+  push:
   release:
     types: [published]
 
@@ -26,6 +27,10 @@ jobs:
           branch: release/${{ steps.tagName.outputs.tag }}
           force: true
 
+      - name: Git lfs Pull
+        run: git lfs pull
+        shell: bash
+
       # Publish to 
       - name: Use Node.js 14
         uses: actions/setup-node@v3
@@ -34,7 +39,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       
       - name: Publish Package to NpmJS
-        run: npm publish
+        run: npm publish --dry-run
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
