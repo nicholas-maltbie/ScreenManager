@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## In Progress
 
+## [3.0.3] - 2022-06-26
+
+* Minor fixes to create package workflow.
+
 ## [3.0.2] - 2022-06-20
 
 * Small changes to fix lfs assets in `release/version` branches.
