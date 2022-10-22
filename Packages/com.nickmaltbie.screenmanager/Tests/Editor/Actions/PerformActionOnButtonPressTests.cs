@@ -16,14 +16,12 @@
 // ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System.Collections;
 using nickmaltbie.ScreenManager.Actions;
 using nickmaltbie.ScreenManager.TestCommon;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.TestTools;
 using static nickmaltbie.ScreenManager.Actions.PerformActionOnButtonPress;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -32,8 +30,8 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
     [TestFixture]
     public class PerformActionOnButtonPressTests : ScreenManagerTestBase
     {
-        [UnityTest]
-        public IEnumerator Validate_PerformActionOnButtonPressTests()
+        [Test]
+        public void Validate_PerformActionOnButtonPressTests()
         {
             var go = new GameObject();
             PerformActionOnButtonPress perform = go.AddComponent<PerformActionOnButtonPress>();
@@ -43,7 +41,7 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
             PlayerInput input = go.AddComponent<PlayerInput>();
             InputActionAsset inputActionAsset = ScriptableObject.CreateInstance<InputActionAsset>();
             InputActionMap actionMap = inputActionAsset.AddActionMap("testMap");
-            InputAction testAction1 = actionMap.AddAction("testAction1", InputActionType.Button, gamepad.aButton.path);
+            InputAction testAction1 = actionMap.AddAction("testAction1", InputActionType.Value, gamepad.aButton.path);
             InputAction testAction2 = actionMap.AddAction("testAction2", InputActionType.Button, gamepad.bButton.path);
 
             var evt1 = new UnityEvent<CallbackContext>();
@@ -72,30 +70,24 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
             testAction1.Enable();
             testAction2.Enable();
 
-            Set(gamepad.aButton, 1);
-            yield return null;
-            Assert.IsTrue(action1 == 0);
-            Assert.IsTrue(action2 == 0);
-            Set(gamepad.aButton, 0);
-            yield return null;
+            Press(gamepad.aButton);
+            Assert.AreEqual(0, action1);
+            Assert.AreEqual(0, action2);
+            Release(gamepad.aButton);
 
             perform.OnScreenLoaded();
 
-            Set(gamepad.aButton, 1);
-            yield return null;
-            Assert.IsTrue(action1 == 1);
-            Assert.IsTrue(action2 == 0);
-            Set(gamepad.aButton, 0);
-            yield return null;
+            Press(gamepad.aButton);
+            Assert.AreEqual(1, action1);
+            Assert.AreEqual(0, action2);
+            Release(gamepad.aButton);
 
             perform.OnScreenUnloaded();
 
-            Set(gamepad.aButton, 1);
-            yield return null;
+            Press(gamepad.aButton);
             Assert.IsTrue(action1 == 1);
             Assert.IsTrue(action2 == 0);
-            Set(gamepad.aButton, 0);
-            yield return null;
+            Release(gamepad.aButton);
 
             InputSystem.RemoveDevice(gamepad);
         }

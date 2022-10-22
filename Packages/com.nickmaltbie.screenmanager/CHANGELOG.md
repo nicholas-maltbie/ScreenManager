@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## In Progress
 
+## [3.1.0] - 2022-10-21
+
+* Updated github action configuration.
+* Updated version of project to 2021.3.11f1.
+
 ## [3.0.4] - 2022-06-26
 
 * Minor fixes to create package workflow... again
