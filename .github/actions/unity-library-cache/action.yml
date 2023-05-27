@@ -4,13 +4,24 @@ inputs:
   target_platform:
     required: true
     type: string
+  library_directory:
+    required: false
+    type: string
+    default: "./Library"
+  unity_version:
+    required: false
+    type: string
+    default: "2022.1.16f1"
 runs:
   using: "composite"
   steps:
     - name: Cache Library Folder
       uses: actions/cache@v2
       with:
-        path: Library
-        key: Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ hashFiles('Packages/manifest.json') }}-v1.0.0
+        path: ${{ inputs.library_directory }}
+        key: Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ hashFiles('Packages/manifest.json') }}-${{ inputs.unity_version }}-${{ inputs.library_directory }}-v1.0.0
         restore-keys: |
+          Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ inputs.unity_version }}-${{ inputs.library_directory }}-
+          Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ inputs.unity_version }}-
           Library-${{ runner.os }}-${{ inputs.target_platform }}-
+          Library-${{ runner.os }}-

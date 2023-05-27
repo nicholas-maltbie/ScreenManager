@@ -27,6 +27,11 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
 {
+    public class UnityEventTest : UnityEvent<CallbackContext>
+    {
+
+    }
+
     [TestFixture]
     public class PerformActionOnButtonPressTests : ScreenManagerTestBase
     {
@@ -44,8 +49,8 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Actions
             InputAction testAction1 = actionMap.AddAction("testAction1", InputActionType.Value, gamepad.aButton.path);
             InputAction testAction2 = actionMap.AddAction("testAction2", InputActionType.Button, gamepad.bButton.path);
 
-            var evt1 = new UnityEvent<CallbackContext>();
-            var evt2 = new UnityEvent<CallbackContext>();
+            var evt1 = new UnityEventTest();
+            var evt2 = new UnityEventTest();
 
             int action1 = 0;
             int action2 = 0;
