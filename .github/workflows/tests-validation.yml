@@ -46,7 +46,7 @@ jobs:
           projectPath: ${{ matrix.project_path }}
           testMode: All
           checkName: All Test Results
-          customParameters: -testFilter "nickmaltbie.ScreenManager.Tests.*" -nographics
+          customParameters: -testFilter "nickmaltbie.ScreenManager.*" -nographics
           coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+nickmaltbie.ScreenManager'
 
       - name: Copy Coverage Results
