@@ -69,7 +69,6 @@ jobs:
       - name: Publish Package to NpmJS
         if: "${{ inputs.release-publish }}"
         run: npm publish
-        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
