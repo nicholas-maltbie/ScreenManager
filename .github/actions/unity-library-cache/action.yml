@@ -11,17 +11,18 @@ inputs:
   unity_version:
     required: false
     type: string
-    default: "2022.1.16f1"
+    default: ""
 runs:
   using: "composite"
   steps:
+    - uses: ./.github/actions/setvars
     - name: Cache Library Folder
       uses: actions/cache@v2
       with:
         path: ${{ inputs.library_directory }}
-        key: Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ hashFiles('Packages/manifest.json') }}-${{ inputs.unity_version }}-${{ inputs.library_directory }}-v1.0.0
+        key: Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ hashFiles('Packages/manifest.json') }}-${{ inputs.unity_version || env.UNITY_VERSION }}-${{ inputs.library_directory }}-v1.0.0
         restore-keys: |
-          Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ inputs.unity_version }}-${{ inputs.library_directory }}-
-          Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ inputs.unity_version }}-
+          Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ inputs.unity_version || env.UNITY_VERSION }}-${{ inputs.library_directory }}-
+          Library-${{ runner.os }}-${{ inputs.target_platform }}-${{ inputs.unity_version || env.UNITY_VERSION }}-
           Library-${{ runner.os }}-${{ inputs.target_platform }}-
           Library-${{ runner.os }}-
