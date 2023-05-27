@@ -24,7 +24,7 @@ jobs:
             project_path: ./Versioning/ScreenManager_2020.3
             post_comment: false
           - version: 2019.4.40f1
-            project_path: ./Versioning/ScreenManagery_2019.4
+            project_path: ./Versioning/ScreenManager_2019.4
             post_comment: false
     steps:
       - uses: actions/checkout@v3
