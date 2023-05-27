@@ -23,6 +23,7 @@ using nickmaltbie.ScreenManager.Text;
 using NUnit.Framework;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace nickmaltbie.ScreenManager.Editor.Tests.Text
 {
@@ -31,6 +32,7 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Text
     {
         private TextMeshProUGUI text;
         private TMProUGUIHyperlinks links;
+        private EventSystem evtSystem;
 
         private int overrideLinkIndex = -1;
         private string lastPressedLink = string.Empty;
@@ -42,6 +44,8 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Text
             var camera = new GameObject();
             camera.AddComponent<Camera>();
             camera.tag = "MainCamera";
+
+            evtSystem = new GameObject().AddComponent<EventSystem>();
 
             var canvas = new GameObject();
             canvas.AddComponent<Canvas>();
@@ -62,6 +66,16 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Text
             RegisterGameObject(canvas);
             RegisterGameObject(go);
             RegisterGameObject(camera);
+        }
+
+        [TearDown]
+        public override void TearDown()
+        {
+            base.TearDown();
+            if (Camera.main != null)
+            {
+                GameObject.DestroyImmediate(Camera.main.gameObject);
+            }
         }
 
         private void SetText(string text)
@@ -94,7 +108,7 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Text
                     for (int x = 0; x < 4; x++)
                     {
                         Color32 c1 = vertexColors[vertexIndex];
-                        color ??= c1;
+                        color = color ?? c1;
                         Assert.IsTrue(c1 == color);
                     }
                 }
@@ -105,7 +119,7 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Text
                     for (int j = 0; j < 12; j++) // Underline seems to be always 3 quads == 12 vertices
                     {
                         Color32 c1 = vertexColors[underlineIndex + j];
-                        color ??= c1;
+                        color = color ?? c1;
                         Assert.IsTrue(c1 == color);
                     }
                 }
@@ -171,7 +185,7 @@ namespace nickmaltbie.ScreenManager.Editor.Tests.Text
             lastPressedLink = string.Empty;
 
             overrideLinkIndex = 1;
-            links.OnPointerDown(null);
+            links.OnPointerDown(new PointerEventData(evtSystem));
             overrideLinkIndex = 0;
 
             // Now wander away

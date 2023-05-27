@@ -1,9 +1,9 @@
 {
   "name": "com.nickmaltbie.screenmanager",
   "displayName": "Screen Manager",
-  "version": "3.1.0",
-  "unity": "2021.1",
-  "unityRelease": "19f1",
+  "version": "3.2.0",
+  "unity": "2019.4",
+  "unityRelease": "40f1",
   "description": "Screen Manager to manage and preset UI screens to show to the player.",
   "author": {
     "name": "Nick Maltbie",
@@ -24,7 +24,8 @@
   ],
   "dependencies": {
     "com.unity.inputsystem": "1.0.2",
-    "com.unity.textmeshpro": "3.0.6"
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.textmeshpro": "1.0.0"
   },
   "testables": ["com.unity.inputsystem"],
   "repository": {

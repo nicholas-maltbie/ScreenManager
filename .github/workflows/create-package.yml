@@ -1,34 +1,58 @@
 name: Create and Publish npm Package
 
 on:
-  push:
-    tags:
-      - '*'
-  release:
-    types: [published]
+  workflow_call:
+    inputs:
+      version-name:
+        required: false
+        type: string
+        default: ""
+      release-publish:
+        required: false
+        type: boolean
+        default: false
+      latest-publish:
+        required: false
+        type: boolean
+        default: true
+    secrets:
+      token:
+        required: false
 
 jobs:
-  create-package:
+  create-screenmanager-package:
+    name: Create ScreenManager package ${{ matrix.name }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: "main"
+            branch_prefix: "release"
+            package_path: "./Packages/com.nickmaltbie.ScreenManager"
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/git-lfs-cache
       - uses: ./.github/actions/setvars
 
       - name: Setup Package
-        run: sh ./setup-package.sh ${{ env.PACKAGE_PATH }}
-
-      - name: Get tag name
-        uses: olegtarasov/get-tag@v2.1.1
-        id: releaseTagName
+        run: ./setup-package.sh -p ${{ matrix.package_path }}
 
       # Deploy build to release branch
-      - name: Push package via Release Tag
-        if: "${{ steps.releaseTagName.outputs.tag != '' }}"
+      - name: Push package to git branch ${{ matrix.branch_prefix }}/${{ inputs.version-name }}
+        if: ${{ inputs.release-publish }}
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: release/${{ steps.releaseTagName.outputs.tag }}
+          github_token: ${{ secrets.token }}
+          branch: ${{ matrix.branch_prefix }}/${{ inputs.version-name }}
+          force: true
+
+      # Deploy build to release branch
+      - name: Push package to git branch ${{ matrix.branch_prefix }}/latest
+        if: ${{ inputs.latest-publish }}
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.token }}
+          branch: ${{ matrix.branch_prefix }}/latest
           force: true
 
       - name: Git lfs Pull
@@ -43,6 +67,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       
       - name: Publish Package to NpmJS
+        if: "${{ inputs.release-publish }}"
         run: npm publish
         continue-on-error: true
         env:
