@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## In Progress
 
+## [3.2.0] - 2023-05-27
+
 * Added backwards compatibility to version 2019.4, 2020.3, 2021.3
 
 ## [3.1.0] - 2022-10-21
