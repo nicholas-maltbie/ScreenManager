@@ -20,8 +20,8 @@ on:
         required: false
 
 jobs:
-  create-testutilsunity-package:
-    name: Create TestUtilsUnity package ${{ matrix.name }}
+  create-screenmanager-package:
+    name: Create ScreenManager package ${{ matrix.name }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
