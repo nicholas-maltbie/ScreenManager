@@ -13,4 +13,4 @@ jobs:
     with:
       latest-publish: false
       release-publish: true
-      version-name: ${{ github.ref }}
+      version-name: ${{ github.ref_name }}

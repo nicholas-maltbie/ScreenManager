@@ -20,15 +20,15 @@ on:
         required: false
 
 jobs:
-  create-screenmanager-package:
-    name: Create ScreenManager package ${{ matrix.name }}
+  create-testutilsunity-package:
+    name: Create TestUtilsUnity package ${{ matrix.name }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
           - name: "main"
             branch_prefix: "release"
-            package_path: "./Packages/com.nickmaltbie.ScreenManager"
+            package_path: "./Packages/com.nickmaltbie.screenmanager"
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/git-lfs-cache
@@ -61,9 +61,9 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
           registry-url: https://registry.npmjs.org/
-
+      
       - name: Publish Package to NpmJS
         if: "${{ inputs.release-publish }}"
         run: npm publish
@@ -72,3 +72,4 @@ jobs:
       
       # Restore back to original branch
       - uses: actions/checkout@v3
+        if: always()
