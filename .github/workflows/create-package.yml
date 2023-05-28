@@ -28,7 +28,7 @@ jobs:
         include:
           - name: "main"
             branch_prefix: "release"
-            package_path: "./Packages/com.nickmaltbie.ScreenManager"
+            package_path: "./Packages/com.nickmaltbie.screenmanager"
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/git-lfs-cache
